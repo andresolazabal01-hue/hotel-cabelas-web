@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+@theme {
+  /* Familia derivada del azul acero del logo (#94a3ba, matiz 216°) */
+  --color-brand-soft: #94a3ba;
+  --color-brand: #4a6a96;
+  --color-brand-dark: #33507a;
+  --color-deep: #16233c;
+  --color-cream: #f7f2e9;
+  --color-sand: #eae1d1;
+  --color-charcoal: #131c2b;
+  --color-ink: #0b111d;
+  --color-wood: #c8a678;
+  --font-display: "Sora", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  background: var(--color-cream);
+}
+
+body {
+  @apply bg-cream text-charcoal font-sans antialiased;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--color-brand);
+  color: #fff;
+}
+
+/* Cinta de texto en movimiento */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 32s linear infinite;
+}
