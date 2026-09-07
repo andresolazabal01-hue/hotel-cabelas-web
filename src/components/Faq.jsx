@@ -1,5 +1,3 @@
-import FadeIn from "./FadeIn.jsx";
-
 const FAQS = [
   {
     q: "¿A qué hora es el check-in y el check-out?",
@@ -32,30 +30,26 @@ export default function Faq() {
     <section id="preguntas" className="bg-sand py-24 md:py-36">
       <div className="mx-auto max-w-7xl px-6 md:px-10">
         <div className="mb-14 md:mb-20">
-          <FadeIn>
-            <p className="mb-6 text-xs font-medium tracking-[0.35em] text-brand-dark uppercase">
-              07 — Preguntas frecuentes
-            </p>
-          </FadeIn>
-          <FadeIn delay={0.1}>
-            <h2 className="max-w-2xl font-display text-4xl leading-tight font-semibold text-charcoal md:text-5xl">
-              Lo que casi siempre nos preguntan antes de reservar.
-            </h2>
-          </FadeIn>
+          <p className="section-label">Preguntas frecuentes</p>
+          <h2 className="display-soft max-w-2xl font-display text-[2rem] leading-[1.1] font-normal text-charcoal md:text-[2.5rem] lg:text-[3.1rem]">
+            Lo que casi siempre nos preguntan antes de reservar.
+          </h2>
         </div>
 
-        <dl className="grid gap-5 md:grid-cols-2">
-          {FAQS.map((item, i) => (
-            <FadeIn key={item.q} delay={0.1 + (i % 2) * 0.08}>
-              <div className="h-full rounded-3xl border border-charcoal/8 bg-white p-8 md:p-9">
-                <dt className="font-display text-lg leading-snug font-semibold text-charcoal">
-                  {item.q}
-                </dt>
-                <dd className="mt-3 text-sm leading-relaxed text-charcoal/60">
-                  {item.a}
-                </dd>
-              </div>
-            </FadeIn>
+        {/* Lista editorial: pregunta y respuesta enfrentadas, sin tarjetas */}
+        <dl className="border-t border-charcoal/15">
+          {FAQS.map((item) => (
+            <div
+              key={item.q}
+              className="grid gap-3 border-b border-charcoal/15 py-8 md:grid-cols-12 md:gap-10 md:py-10"
+            >
+              <dt className="font-display text-lg leading-snug font-medium text-charcoal md:col-span-5">
+                {item.q}
+              </dt>
+              <dd className="text-sm leading-relaxed text-charcoal/60 md:col-span-7 md:pt-1">
+                {item.a}
+              </dd>
+            </div>
           ))}
         </dl>
       </div>

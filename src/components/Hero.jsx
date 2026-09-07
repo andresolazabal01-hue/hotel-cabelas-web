@@ -17,13 +17,14 @@ export default function Hero() {
       <div className="pointer-events-none absolute inset-0 bg-black/30" />
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-linear-to-t from-ink/70 to-transparent" />
 
-      {/* Contenido centrado */}
+      {/* Contenido centrado. La entrada del hero es el único momento
+          animado del sitio: el resto se sostiene quieto. */}
       <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center">
         <motion.p
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="mb-6 text-xs font-medium tracking-[0.35em] text-brand-soft uppercase"
+          className="mb-6 text-sm text-white/70"
         >
           Mazatenango · Suchitepéquez · Guatemala
         </motion.p>
@@ -44,7 +45,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.55 }}
-          className="mt-8 text-lg text-white/85 md:text-xl"
+          className="display-soft mt-8 font-display text-2xl font-normal text-white/90 md:text-3xl"
         >
           El descanso que mereces.
         </motion.p>
@@ -53,9 +54,9 @@ export default function Hero() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.7 }}
-          className="mt-8 flex flex-wrap items-center justify-center gap-4"
+          className="mt-9 flex flex-wrap items-center justify-center gap-4"
         >
-          <span className="flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm text-white/90 backdrop-blur-sm">
+          <span className="flex items-center gap-2 rounded-control border border-white/20 px-4 py-2 text-sm text-white/90">
             <span className="text-brand-soft">★</span> 4.9 · 63 reseñas en
             Google
           </span>
@@ -65,7 +66,7 @@ export default function Hero() {
               e.preventDefault();
               window.__lenis?.scrollTo("#habitaciones");
             }}
-            className="rounded-full bg-brand px-7 py-3 text-sm font-medium text-white transition-all hover:bg-brand-dark hover:shadow-lg hover:shadow-brand/30"
+            className="rounded-control bg-brand px-7 py-3 text-sm font-medium text-white transition-colors hover:bg-brand-dark"
           >
             Ver habitaciones
           </a>

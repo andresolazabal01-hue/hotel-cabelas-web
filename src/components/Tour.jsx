@@ -18,10 +18,8 @@ function TourBlock({ title, videoSrc }) {
       <div className="sticky top-0 flex h-svh items-center justify-center overflow-hidden">
         <div className="flex w-full max-w-7xl flex-col items-center justify-center gap-6 px-6 lg:flex-row lg:gap-20 lg:px-10">
           <div className="max-w-xs pt-16 text-center lg:pt-0 lg:text-left">
-            <p className="mb-4 text-xs font-medium tracking-[0.35em] text-brand-dark uppercase">
-              05 — Recorrido
-            </p>
-            <h2 className="font-display text-2xl leading-tight font-semibold text-charcoal md:text-4xl">
+            <p className="section-label">Recorrido</p>
+            <h2 className="display-soft font-display text-[1.6rem] leading-[1.16] font-normal text-charcoal md:text-[2.1rem]">
               {title}
             </h2>
             <p className="mt-4 hidden text-sm leading-relaxed text-charcoal/55 lg:block">
@@ -30,10 +28,10 @@ function TourBlock({ title, videoSrc }) {
             </p>
 
             {/* Barra de progreso del recorrido */}
-            <div className="mx-auto mt-5 h-1 w-full max-w-xs overflow-hidden rounded-full bg-sand lg:mx-0 lg:mt-8">
+            <div className="mx-auto mt-5 h-[3px] w-full max-w-xs overflow-hidden bg-sand lg:mx-0 lg:mt-8">
               <motion.div
                 style={{ scaleX: scrollYProgress }}
-                className="h-full w-full origin-left rounded-full bg-brand"
+                className="h-full w-full origin-left bg-brand"
               />
             </div>
           </div>
@@ -41,13 +39,13 @@ function TourBlock({ title, videoSrc }) {
           <div className="relative">
             <video
               ref={videoRef}
-              className="h-[58svh] rounded-3xl object-cover shadow-2xl shadow-charcoal/25 md:h-[74svh]"
+              className="h-[58svh] rounded-panel object-cover md:h-[74svh]"
               src={videoSrc}
               muted
               playsInline
               preload="auto"
             />
-            <div className="pointer-events-none absolute inset-0 rounded-3xl ring-1 ring-charcoal/10 ring-inset" />
+            <div className="pointer-events-none absolute inset-0 rounded-panel ring-1 ring-charcoal/10 ring-inset" />
           </div>
         </div>
       </div>

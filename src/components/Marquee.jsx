@@ -11,10 +11,10 @@ export default function Marquee() {
     <>
       {ITEMS.map((item) => (
         <span key={item} className="flex shrink-0 items-center gap-8 md:gap-14">
-          <span className="font-display text-sm font-medium tracking-[0.25em] text-cream/80 uppercase">
+          <span className="font-display text-base font-normal text-cream/75">
             {item}
           </span>
-          <span className="text-brand-soft">✦</span>
+          <span className="text-brand-soft/60">✦</span>
         </span>
       ))}
     </>

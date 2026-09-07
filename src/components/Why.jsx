@@ -1,8 +1,5 @@
-import FadeIn from "./FadeIn.jsx";
-
 const POINTS = [
   {
-    num: "01",
     title: "Limpieza impecable",
     text: "Habitaciones y baños en estado impecable, cuidados a diario. Es lo primero que mencionan las reseñas.",
     icon: (
@@ -10,7 +7,6 @@ const POINTS = [
     ),
   },
   {
-    num: "02",
     title: "Seguridad en el ingreso",
     text: "Acceso controlado y un ambiente privado, para que descanses con total tranquilidad.",
     icon: (
@@ -18,7 +14,6 @@ const POINTS = [
     ),
   },
   {
-    num: "03",
     title: "Atención 24/7",
     text: "Recepción atenta a cualquier hora, los 7 días de la semana. Llega cuando lo necesites.",
     icon: (
@@ -26,7 +21,6 @@ const POINTS = [
     ),
   },
   {
-    num: "04",
     title: "Comodidad completa",
     text: "Aire acondicionado, TV, wifi y camas cómodas en todas las habitaciones, bien equipadas.",
     icon: (
@@ -39,53 +33,42 @@ export default function Why() {
   return (
     <section className="bg-cream py-24 md:py-36">
       <div className="mx-auto max-w-7xl px-6 md:px-10">
-        <div className="mb-14 text-center md:mb-20">
-          <FadeIn>
-            <p className="mb-6 text-xs font-medium tracking-[0.35em] text-brand-dark uppercase">
-              06 — Por qué Cabelas
-            </p>
-          </FadeIn>
-          <FadeIn delay={0.1}>
-            <h2 className="mx-auto max-w-2xl font-display text-4xl leading-tight font-semibold text-charcoal md:text-5xl">
-              Lo que destacan quienes ya se hospedaron.
-            </h2>
-          </FadeIn>
+        <div className="mb-14 md:mb-20">
+          <p className="section-label">Por qué Cabelas</p>
+          <h2 className="display-soft max-w-2xl font-display text-[2rem] leading-[1.1] font-normal text-charcoal md:text-[2.5rem] lg:text-[3.1rem]">
+            Lo que destacan quienes ya se hospedaron.
+          </h2>
         </div>
 
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {POINTS.map((p, i) => (
-            <FadeIn key={p.num} delay={0.1 + i * 0.1}>
-              <article className="group relative h-full overflow-hidden rounded-3xl border border-sand bg-white p-8 transition-all duration-500 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-charcoal/8">
-                <span className="pointer-events-none absolute -top-3 right-4 font-display text-7xl font-bold text-sand/60 transition-colors duration-500 group-hover:text-brand/15">
-                  {p.num}
-                </span>
-                <span className="grid size-12 place-items-center rounded-2xl bg-brand/10 text-brand-dark">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    className="size-6"
-                    aria-hidden="true"
-                  >
-                    {p.icon}
-                  </svg>
-                </span>
-                <h3 className="mt-6 font-display text-lg font-semibold text-charcoal">
-                  {p.title}
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-charcoal/55">
-                  {p.text}
-                </p>
-              </article>
-            </FadeIn>
+        {/* Cuatro apuntes en rejilla abierta: ninguno necesita ser una tarjeta */}
+        <dl className="grid border-t border-charcoal/10 sm:grid-cols-2 lg:grid-cols-4">
+          {POINTS.map((p) => (
+            <div
+              key={p.title}
+              className="border-b border-charcoal/10 py-9 sm:pr-10 lg:border-b-0 lg:pb-0"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                className="size-5 text-brand"
+                aria-hidden="true"
+              >
+                {p.icon}
+              </svg>
+              <dt className="mt-5 font-display text-lg font-medium text-charcoal">
+                {p.title}
+              </dt>
+              <dd className="mt-3 max-w-xs text-sm leading-relaxed text-charcoal/55">
+                {p.text}
+              </dd>
+            </div>
           ))}
-        </div>
+        </dl>
 
-        <FadeIn delay={0.2} className="mt-14 text-center">
-          <p className="inline-flex items-center gap-2 rounded-full border border-sand bg-white px-5 py-2.5 text-sm text-charcoal/60">
-            <span className="text-brand">★</span>
-            Basado en las 63 reseñas del hotel en Google — 4.9 de 5 estrellas
-          </p>
-        </FadeIn>
+        <p className="mt-14 flex items-center gap-2 text-sm text-charcoal/50">
+          <span className="text-brand">★</span>
+          Basado en las 63 reseñas del hotel en Google — 4.9 de 5 estrellas
+        </p>
       </div>
     </section>
   );

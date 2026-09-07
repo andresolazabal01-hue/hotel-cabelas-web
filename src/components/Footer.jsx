@@ -1,4 +1,3 @@
-import FadeIn from "./FadeIn.jsx";
 import {
   ADDRESS,
   MAPS_EMBED_URL,
@@ -11,7 +10,7 @@ export default function Footer() {
     <footer id="contacto" className="bg-charcoal pt-20 pb-8 md:pt-28">
       <div className="mx-auto max-w-7xl px-6 md:px-10">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
-          <FadeIn>
+          <div>
             <img
               src="/images/logo-cabelas.webp"
               alt="Cabelas — El descanso que mereces"
@@ -22,62 +21,54 @@ export default function Footer() {
               seguridad y atención las 24 horas.
             </p>
 
-            <div className="mt-10 grid gap-8 sm:grid-cols-2">
+            <dl className="mt-12 grid gap-8 border-t border-white/10 pt-10 sm:grid-cols-2">
               <div>
-                <p className="text-xs font-medium tracking-[0.25em] text-brand-soft uppercase">
-                  Dirección
-                </p>
-                <p className="mt-3 text-sm leading-relaxed text-white/70">
+                <dt className="text-sm text-brand-soft">Dirección</dt>
+                <dd className="mt-3 text-sm leading-relaxed text-white/70">
                   {ADDRESS}
                   <br />
                   Guatemala
-                </p>
+                </dd>
               </div>
               <div>
-                <p className="text-xs font-medium tracking-[0.25em] text-brand-soft uppercase">
-                  Contacto
-                </p>
-                <a
-                  href={WHATSAPP_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-3 block text-sm text-white/70 transition-colors hover:text-white"
-                >
-                  {PHONE_DISPLAY} (WhatsApp)
-                </a>
+                <dt className="text-sm text-brand-soft">Contacto</dt>
+                <dd className="mt-3">
+                  <a
+                    href={WHATSAPP_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-white/70 transition-colors hover:text-white"
+                  >
+                    {PHONE_DISPLAY} (WhatsApp)
+                  </a>
+                </dd>
               </div>
               <div>
-                <p className="text-xs font-medium tracking-[0.25em] text-brand-soft uppercase">
-                  Horario
-                </p>
-                <p className="mt-3 text-sm leading-relaxed text-white/70">
+                <dt className="text-sm text-brand-soft">Horario</dt>
+                <dd className="mt-3 text-sm leading-relaxed text-white/70">
                   Abierto 24 horas
                   <br />
                   Los 7 días de la semana
-                </p>
+                </dd>
               </div>
               <div>
-                <p className="text-xs font-medium tracking-[0.25em] text-brand-soft uppercase">
-                  A un paso
-                </p>
-                <p className="mt-3 text-sm leading-relaxed text-white/70">
+                <dt className="text-sm text-brand-soft">A un paso</dt>
+                <dd className="mt-3 text-sm leading-relaxed text-white/70">
                   Restaurante El Pirata
                   <br />
                   contiguo al hotel
-                </p>
+                </dd>
               </div>
-            </div>
-          </FadeIn>
+            </dl>
+          </div>
 
-          <FadeIn delay={0.15}>
-            <iframe
-              title="Ubicación de Hotel Cabelas en Google Maps"
-              src={MAPS_EMBED_URL}
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              className="h-72 w-full rounded-3xl border-0 opacity-90 grayscale lg:h-full lg:min-h-[22rem]"
-            />
-          </FadeIn>
+          <iframe
+            title="Ubicación de Hotel Cabelas en Google Maps"
+            src={MAPS_EMBED_URL}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            className="h-72 w-full rounded-panel border-0 opacity-90 grayscale lg:h-full lg:min-h-[22rem]"
+          />
         </div>
 
         <div className="mt-16 flex flex-col items-center justify-between gap-3 border-t border-white/10 pt-6 text-xs text-white/35 md:flex-row">

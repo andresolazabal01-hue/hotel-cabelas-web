@@ -1,5 +1,3 @@
-import FadeIn from "./FadeIn.jsx";
-
 const POINTS = [
   {
     title: "Sin costo para huéspedes",
@@ -21,47 +19,39 @@ export default function Pool() {
       <div className="mx-auto max-w-7xl px-6 md:px-10">
         <div className="mb-14 flex flex-col gap-6 md:mb-20 md:flex-row md:items-end md:justify-between">
           <div>
-            <FadeIn>
-              <p className="mb-6 text-xs font-medium tracking-[0.35em] text-brand-soft uppercase">
-                04 — Piscina
-              </p>
-            </FadeIn>
-            <FadeIn delay={0.1}>
-              <h2 className="max-w-xl font-display text-4xl leading-tight font-semibold text-cream md:text-5xl">
-                Piscina incluida, a un paso del hotel.
-              </h2>
-            </FadeIn>
+            <p className="section-label-invert">Piscina</p>
+            <h2 className="display-soft max-w-xl font-display text-[2rem] leading-[1.1] font-normal text-cream md:text-[2.5rem] lg:text-[3.1rem]">
+              Piscina incluida, a un paso del hotel.
+            </h2>
           </div>
-          <FadeIn delay={0.2}>
-            <p className="max-w-sm text-sm leading-relaxed text-cream/50">
-              Nuestros huéspedes tienen acceso gratuito a la piscina del
-              Restaurante El Pirata, contiguo a Cabelas. No es parte del hotel:
-              es un beneficio que tienes por hospedarte con nosotros.
-            </p>
-          </FadeIn>
-        </div>
-
-        <div className="grid gap-5 md:grid-cols-3">
-          {POINTS.map((p, i) => (
-            <FadeIn key={p.title} delay={0.1 + i * 0.08}>
-              <article className="h-full rounded-3xl border border-white/10 bg-white/[0.04] p-8 md:p-9">
-                <h3 className="font-display text-lg font-semibold text-cream">
-                  {p.title}
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-cream/55">
-                  {p.text}
-                </p>
-              </article>
-            </FadeIn>
-          ))}
-        </div>
-
-        <FadeIn delay={0.2} className="mt-10 text-center">
-          <p className="mx-auto inline-flex max-w-xl rounded-2xl border border-white/15 px-6 py-4 text-sm leading-relaxed text-cream/55">
-            La piscina pertenece al Restaurante El Pirata. Los horarios de uso
-            dependen del restaurante — en recepción te confirmamos el del día.
+          <p className="max-w-sm text-sm leading-relaxed text-cream/50">
+            Nuestros huéspedes tienen acceso gratuito a la piscina del
+            Restaurante El Pirata, contiguo a Cabelas. No es parte del hotel: es
+            un beneficio que tienes por hospedarte con nosotros.
           </p>
-        </FadeIn>
+        </div>
+
+        {/* Tres apuntes en columnas abiertas, separados por filete */}
+        <dl className="grid border-t border-white/10 md:grid-cols-3">
+          {POINTS.map((p) => (
+            <div
+              key={p.title}
+              className="border-b border-white/10 py-9 md:border-b-0 md:pr-10 md:pb-0"
+            >
+              <dt className="font-display text-lg font-medium text-cream">
+                {p.title}
+              </dt>
+              <dd className="mt-3 max-w-sm text-sm leading-relaxed text-cream/55">
+                {p.text}
+              </dd>
+            </div>
+          ))}
+        </dl>
+
+        <p className="mt-14 max-w-xl text-sm leading-relaxed text-cream/40">
+          La piscina pertenece al Restaurante El Pirata. Los horarios de uso
+          dependen del restaurante — en recepción te confirmamos el del día.
+        </p>
       </div>
     </section>
   );

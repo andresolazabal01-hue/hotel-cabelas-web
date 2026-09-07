@@ -71,7 +71,7 @@ export default function Nav() {
           href={WHATSAPP_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="rounded-full bg-brand px-5 py-2 text-sm font-medium text-white transition-all hover:bg-brand-dark hover:shadow-lg hover:shadow-brand/30"
+          className="rounded-control bg-brand px-5 py-2 text-sm font-medium text-white transition-colors hover:bg-brand-dark"
         >
           Reservar
         </a>

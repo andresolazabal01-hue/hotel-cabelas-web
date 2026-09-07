@@ -1,67 +1,55 @@
-import FadeIn from "./FadeIn.jsx";
 import { PHONE_DISPLAY, WHATSAPP_URL } from "../data.js";
 
 export default function Booking() {
   return (
     <section className="relative overflow-hidden bg-ink py-28 md:py-40">
-      {/* Resplandor decorativo */}
-      <div className="pointer-events-none absolute top-1/2 left-1/2 size-[36rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand/15 blur-[120px]" />
-      <span className="pointer-events-none absolute -bottom-8 left-1/2 -translate-x-1/2 font-display text-[22vw] leading-none font-bold whitespace-nowrap text-white/[0.03] select-none">
+      <span className="pointer-events-none absolute -bottom-8 left-1/2 -translate-x-1/2 font-display text-[22vw] leading-none font-normal whitespace-nowrap text-white/[0.04] select-none">
         CABELAS
       </span>
 
       <div className="relative mx-auto max-w-4xl px-6 text-center md:px-10">
-        <FadeIn>
-          <p className="mb-6 text-xs font-medium tracking-[0.35em] text-brand-soft uppercase">
-            08 — Reserva
-          </p>
-        </FadeIn>
-        <FadeIn delay={0.1}>
-          <h2 className="font-display text-4xl leading-tight font-semibold text-white md:text-6xl">
-            Reserva <span className="text-brand-soft">directo</span>.
-            <br />
-            Sin comisiones de terceros.
-          </h2>
-        </FadeIn>
-        <FadeIn delay={0.2}>
-          <p className="mx-auto mt-6 max-w-lg text-base leading-relaxed text-white/55">
-            El precio de viajero —{" "}
-            <span className="text-white/80">
-              Q290 a Q350 la noche de lunes a viernes
-            </span>{" "}
-            — solo existe reservando con nosotros. Ninguna plataforma lo tiene,
-            porque ninguna plataforma se queda con una comisión de por medio.
-          </p>
-        </FadeIn>
-        <FadeIn delay={0.25}>
-          <p className="mx-auto mt-4 max-w-md text-base leading-relaxed text-white/55">
-            Escríbenos por WhatsApp y confirma tu habitación en minutos, a
-            cualquier hora del día. Sin anticipo para apartar.
-          </p>
-        </FadeIn>
-        <FadeIn delay={0.3}>
-          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <a
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-3 rounded-full bg-brand px-8 py-4 text-base font-medium text-white transition-all hover:bg-brand-dark hover:shadow-xl hover:shadow-brand/30"
+        <p className="section-label-invert">Reserva</p>
+
+        <h2 className="display-soft font-display text-[2.6rem] leading-[1.06] font-normal text-white md:text-[3rem] lg:text-[3.8rem]">
+          Reserva <span className="text-brand-soft">directo</span>.
+          <br />
+          Sin comisiones de terceros.
+        </h2>
+
+        <p className="mx-auto mt-8 max-w-lg text-base leading-relaxed text-white/55">
+          El precio de viajero —{" "}
+          <span className="text-white/80">
+            Q290 a Q350 la noche de lunes a viernes
+          </span>{" "}
+          — solo existe reservando con nosotros. Ninguna plataforma lo tiene,
+          porque ninguna plataforma se queda con una comisión de por medio.
+        </p>
+        <p className="mx-auto mt-4 max-w-md text-base leading-relaxed text-white/55">
+          Escríbenos por WhatsApp y confirma tu habitación en minutos, a
+          cualquier hora del día. Sin anticipo para apartar.
+        </p>
+
+        <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <a
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-3 rounded-control bg-brand px-8 py-4 text-base font-medium text-white transition-colors hover:bg-brand-dark"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              className="size-5"
+              aria-hidden="true"
             >
-              <svg
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                className="size-5"
-                aria-hidden="true"
-              >
-                <path d="M12 2a10 10 0 00-8.5 15.3L2 22l4.9-1.4A10 10 0 1012 2zm0 18.2a8.2 8.2 0 01-4.2-1.2l-.3-.2-3 .9.9-2.9-.2-.3A8.2 8.2 0 1112 20.2zm4.6-6.1c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.3-.6.8-.8 1-.1.2-.3.2-.5.1a6.7 6.7 0 01-3.4-3c-.3-.4 0-.5.1-.7l.4-.5c.1-.2.2-.3.3-.5v-.5c0-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.1s.9 2.5 1 2.6c.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2l-.4-.3z" />
-              </svg>
-              WhatsApp {PHONE_DISPLAY}
-            </a>
-            <span className="text-sm text-white/40">
-              Respuesta a cualquier hora · 24/7
-            </span>
-          </div>
-        </FadeIn>
+              <path d="M12 2a10 10 0 00-8.5 15.3L2 22l4.9-1.4A10 10 0 1012 2zm0 18.2a8.2 8.2 0 01-4.2-1.2l-.3-.2-3 .9.9-2.9-.2-.3A8.2 8.2 0 1112 20.2zm4.6-6.1c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.3-.6.8-.8 1-.1.2-.3.2-.5.1a6.7 6.7 0 01-3.4-3c-.3-.4 0-.5.1-.7l.4-.5c.1-.2.2-.3.3-.5v-.5c0-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.1s.9 2.5 1 2.6c.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2l-.4-.3z" />
+            </svg>
+            WhatsApp {PHONE_DISPLAY}
+          </a>
+          <span className="text-sm text-white/40">
+            Respuesta a cualquier hora · 24/7
+          </span>
+        </div>
       </div>
     </section>
   );
