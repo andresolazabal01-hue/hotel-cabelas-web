@@ -2,7 +2,7 @@ import { PHONE_DISPLAY, WHATSAPP_URL } from "../data.js";
 
 export default function Booking() {
   return (
-    <section className="relative overflow-hidden fondo-ink py-28 md:py-40">
+    <section className="relative overflow-hidden bg-ink py-28 md:py-40">
       <span className="pointer-events-none absolute -bottom-8 left-1/2 -translate-x-1/2 font-display text-[22vw] leading-none font-normal whitespace-nowrap text-white/[0.04] select-none">
         CABELAS
       </span>

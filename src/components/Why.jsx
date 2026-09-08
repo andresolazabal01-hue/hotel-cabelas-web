@@ -31,7 +31,7 @@ const POINTS = [
 
 export default function Why() {
   return (
-    <section className="fondo-cream py-24 md:py-36">
+    <section className="bg-cream py-24 md:py-36">
       <div className="mx-auto max-w-7xl px-6 md:px-10">
         <div className="mb-14 md:mb-20">
           <p className="section-label">Por qué Cabelas</p>

@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import Lenis from "lenis";
-import ScrollTint from "./components/ScrollTint.jsx";
 import Nav from "./components/Nav.jsx";
 import Hero from "./components/Hero.jsx";
 import Intro from "./components/Intro.jsx";
@@ -32,7 +31,6 @@ export default function App() {
 
   return (
     <>
-      <ScrollTint />
       <Nav />
       <main>
         <Hero />

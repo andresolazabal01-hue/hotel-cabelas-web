@@ -61,47 +61,6 @@ body {
   letter-spacing: 0.01em;
 }
 
-/* Tinte global ligado al scroll. Solo tiñe superficies: el texto no se
-   toca, así el contraste no depende del recorrido.
-
-   La mezcla es asimétrica y eso está medido: sobre crema y arena el
-   texto es oscuro y queda lejos del fondo, así que aguantan 24% sin que
-   nada baje de 4.5:1. Sobre los fondos oscuros el texto es claro y está
-   mucho más cerca del fondo: ahí el techo es 12%. */
-:root {
-  --tinte: #94a3ba;
-}
-
-.fondo-cream,
-.fondo-sand,
-.fondo-deep,
-.fondo-ink,
-.fondo-charcoal {
-  transition: background-color 120ms linear;
-}
-
-/* La primera declaración es el respaldo si color-mix no está disponible. */
-.fondo-cream {
-  background-color: var(--color-cream);
-  background-color: color-mix(in srgb, var(--color-cream) 76%, var(--tinte));
-}
-.fondo-sand {
-  background-color: var(--color-sand);
-  background-color: color-mix(in srgb, var(--color-sand) 76%, var(--tinte));
-}
-.fondo-deep {
-  background-color: var(--color-deep);
-  background-color: color-mix(in srgb, var(--color-deep) 88%, var(--tinte));
-}
-.fondo-ink {
-  background-color: var(--color-ink);
-  background-color: color-mix(in srgb, var(--color-ink) 88%, var(--tinte));
-}
-.fondo-charcoal {
-  background-color: var(--color-charcoal);
-  background-color: color-mix(in srgb, var(--color-charcoal) 88%, var(--tinte));
-}
-
 /* Cinta de texto en movimiento */
 @keyframes marquee {
   from {

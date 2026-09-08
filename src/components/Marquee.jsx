@@ -21,7 +21,7 @@ export default function Marquee() {
   );
 
   return (
-    <div className="overflow-hidden fondo-deep py-5">
+    <div className="overflow-hidden bg-deep py-5">
       <div className="animate-marquee flex w-max gap-8 md:gap-14">
         {row}
         {row}

@@ -15,7 +15,7 @@ const POINTS = [
 
 export default function Pool() {
   return (
-    <section id="piscina" className="fondo-deep py-24 md:py-36">
+    <section id="piscina" className="bg-deep py-24 md:py-36">
       <div className="mx-auto max-w-7xl px-6 md:px-10">
         <div className="mb-14 flex flex-col gap-6 md:mb-20 md:flex-row md:items-end md:justify-between">
           <div>
