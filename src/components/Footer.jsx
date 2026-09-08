@@ -1,7 +1,9 @@
 import {
   ADDRESS,
+  MAPS_DIRECTIONS_URL,
   MAPS_EMBED_URL,
   PHONE_DISPLAY,
+  WAZE_URL,
   WHATSAPP_URL,
 } from "../data.js";
 
@@ -62,13 +64,35 @@ export default function Footer() {
             </dl>
           </div>
 
-          <iframe
-            title="Ubicación de Hotel Cabelas en Google Maps"
-            src={MAPS_EMBED_URL}
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            className="h-72 w-full rounded-panel border-0 opacity-90 grayscale lg:h-full lg:min-h-[22rem]"
-          />
+          <div className="flex flex-col gap-4">
+            <iframe
+              title="Ubicación de Hotel Cabelas en Google Maps"
+              src={MAPS_EMBED_URL}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="h-72 w-full rounded-panel border-0 opacity-90 grayscale lg:min-h-[22rem] lg:flex-1"
+            />
+
+            {/* Atajos a la ruta ya trazada, que el mapa embebido no permite */}
+            <div className="grid gap-3 sm:grid-cols-2">
+              <a
+                href={WAZE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-control border border-brand-soft/40 px-6 py-3.5 text-center text-sm font-medium text-cream transition-colors hover:border-brand-soft hover:bg-brand-soft/10"
+              >
+                Abrir en Waze
+              </a>
+              <a
+                href={MAPS_DIRECTIONS_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-control border border-brand-soft/40 px-6 py-3.5 text-center text-sm font-medium text-cream transition-colors hover:border-brand-soft hover:bg-brand-soft/10"
+              >
+                Abrir en Google Maps
+              </a>
+            </div>
+          </div>
         </div>
 
         <div className="mt-16 flex flex-col items-center justify-between gap-3 border-t border-white/10 pt-6 text-xs text-white/35 md:flex-row">
