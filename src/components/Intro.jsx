@@ -1,6 +1,3 @@
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
-
 const STATS = [
   { value: "4.9★", label: "Calificación en Google" },
   { value: "63", label: "Reseñas verificadas" },
@@ -9,13 +6,6 @@ const STATS = [
 ];
 
 export default function Intro() {
-  const imgWrapRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: imgWrapRef,
-    offset: ["start end", "end start"],
-  });
-  const imgY = useTransform(scrollYProgress, [0, 1], [-30, 30]);
-
   return (
     <section id="hotel" className="bg-cream py-24 md:py-36">
       <div className="mx-auto max-w-7xl px-6 md:px-10">
@@ -60,16 +50,15 @@ export default function Intro() {
           </div>
 
           <div className="relative">
-            <div
-              ref={imgWrapRef}
-              className="relative overflow-hidden rounded-panel"
-            >
-              <motion.img
-                style={{ y: imgY }}
+            {/* El contenedor toma la proporción real del archivo (2000x1124),
+                así la fachada entra completa y no queda borde recortado.
+                El fondo crema cubre cualquier sobrante de redondeo. */}
+            <div className="relative aspect-[500/281] overflow-hidden rounded-panel bg-cream">
+              <img
                 src="/images/foto-fachada.jpg"
                 alt="Fachada de Hotel Cabelas"
                 loading="lazy"
-                className="aspect-[4/5] w-full scale-110 object-cover md:aspect-[3/4]"
+                className="h-full w-full object-contain"
               />
             </div>
             <div className="absolute -bottom-5 left-6 rounded-panel bg-charcoal px-6 py-4">
