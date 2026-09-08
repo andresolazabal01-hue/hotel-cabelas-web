@@ -134,22 +134,22 @@ export default function Rooms() {
                   className="mt-6 w-full"
                 />
               ) : (
-                /* Tipo 2 aún no tiene grabación. En vez de un hueco, la
-                   ranura lleva su propio tratamiento y el mismo filete
-                   bajo la media, para que la fila no se descuadre. */
+                /* Tipo 2 aún no tiene grabación. La ranura la ocupa una
+                   cita: contenido propio, no un hueco esperando media.
+                   Mismo filete bajo el bloque que la barra de progreso
+                   de los otros dos, para que la fila no se descuadre. */
                 <figure
                   className="mt-6 w-full"
                   style={{ maxWidth: "calc(70svh * 4 / 5)" }}
                 >
-                  <div className="grid aspect-[4/5] place-items-center rounded-panel border border-brand-soft/25 bg-linear-to-b from-brand/25 to-brand/5">
-                    <svg
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                      className="size-20 text-brand-soft/45"
-                      aria-hidden="true"
-                    >
-                      <path d="M4 7h16a2 2 0 012 2v3h-2v6h-2v-2H6v2H4v-6H2V9a2 2 0 012-2zm0 2v3h16V9H4zm2-5h12v2H6V4z" />
-                    </svg>
+                  <div className="flex aspect-[4/5] items-center rounded-panel bg-linear-to-b from-brand/18 to-brand/5 px-6 md:px-7">
+                    <p className="display-soft max-w-sm font-display text-[1.4rem] leading-[1.45] font-normal text-cream/75 sm:max-w-md sm:text-[2rem] lg:max-w-sm lg:text-[1.4rem]">
+                      <span className="text-brand-soft">
+                        La habitación del viajero.
+                      </span>{" "}
+                      Pensada para quien llega por trabajo, no por vacaciones —
+                      lo esencial, sin nada de más.
+                    </p>
                   </div>
                   <div className="mt-3 h-[3px] w-full bg-white/10" />
                 </figure>
