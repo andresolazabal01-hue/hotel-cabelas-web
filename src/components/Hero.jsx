@@ -13,11 +13,13 @@ export default function Hero() {
         playsInline
       />
 
-      {/* El fondo es un cielo nublado, muy claro (gris medio 186/255): sin
-          suficiente velo el texto blanco se queda en 3.2:1. El degradado
-          carga hacia abajo, donde estan el texto y los botones, y afloja
-          arriba para que se siga viendo la fachada. */}
-      <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/80 via-black/60 via-65% to-black/25" />
+      {/* El fondo es un cielo nublado muy claro: por pixel llega a 249/255
+          justo detras del texto. Van dos capas — una plana que garantiza
+          un piso de contraste en cualquier fotograma, y encima el
+          degradado, que carga abajo donde estan el texto y los botones y
+          afloja arriba para que se siga viendo la fachada. */}
+      <div className="pointer-events-none absolute inset-0 bg-black/20" />
+      <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/85 via-black/70 via-65% to-black/30" />
 
       {/* Contenido centrado. La entrada del hero es el único momento
           animado del sitio: el resto se sostiene quieto. */}
