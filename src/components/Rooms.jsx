@@ -1,33 +1,6 @@
 import DragScrubVideo from "./DragScrubVideo.jsx";
 import { WHATSAPP_URL } from "../data.js";
 
-const GALLERY = [
-  {
-    src: "/images/habitacion-turquesa.jpg",
-    alt: "Habitación con pared turquesa y motivo de hojas tropicales",
-    title: "El sello de la casa",
-    caption: "Acento turquesa con motivo tropical",
-    span: "md:col-span-7",
-    aspect: "aspect-[4/3] md:aspect-[16/10]",
-  },
-  {
-    src: "/images/habitacion-madera.jpg",
-    alt: "Habitación en tonos cálidos con piso de madera",
-    title: "Tonos cálidos y madera",
-    caption: "Confort pensado para descansar",
-    span: "md:col-span-5",
-    aspect: "aspect-[4/3] md:aspect-auto md:h-full",
-  },
-  {
-    src: "/images/foto-bano.jpg",
-    alt: "Baño privado con mueble de madera y lavamanos tipo bowl",
-    title: "Baño privado",
-    caption: "Acabados en madera y detalles limpios",
-    span: "md:col-span-12",
-    aspect: "aspect-[4/3] md:aspect-[21/8]",
-  },
-];
-
 const TYPES = [
   {
     tag: "Tipo 1",
@@ -110,36 +83,8 @@ export default function Rooms() {
           </p>
         </div>
 
-        <div className="grid gap-4 md:grid-cols-12 md:gap-5">
-          {GALLERY.map((room) => (
-            <figure
-              key={room.src}
-              className={`group relative overflow-hidden rounded-panel ${room.span}`}
-            >
-              <img
-                src={room.src}
-                alt={room.alt}
-                loading="lazy"
-                className={`w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 ${room.aspect}`}
-              />
-              <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-ink/80 via-transparent to-transparent" />
-              <figcaption className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-6 md:p-8">
-                <div>
-                  <p className="font-display text-lg font-medium text-white md:text-xl">
-                    {room.title}
-                  </p>
-                  <p className="mt-1 text-sm text-white/60">{room.caption}</p>
-                </div>
-                <span className="hidden text-xs whitespace-nowrap text-white/55 lg:block">
-                  A/C · TV · Wifi
-                </span>
-              </figcaption>
-            </figure>
-          ))}
-        </div>
-
         {/* Cómo funcionan los precios — abierto sobre el fondo, sin caja */}
-        <div className="mt-20 border-t border-white/10 pt-14 md:mt-28">
+        <div className="border-t border-white/10 pt-14">
           <p className="section-label-invert">Cómo funcionan los precios</p>
           <h3 className="display-soft max-w-2xl font-display text-[1.7rem] leading-[1.16] font-normal text-cream md:text-[2rem] lg:text-[2.4rem]">
             Hay dos precios por noche: el normal y el{" "}
