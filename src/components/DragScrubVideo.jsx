@@ -24,10 +24,18 @@ export default function DragScrubVideo({
   title,
   subtitle,
   tone = "dark",
-  aspect = "aspect-[9/16]",
+  ratio = "9/16",
+  maxVh = 70,
+  maxWidth,
   secondsPerPixel = SECONDS_PER_PIXEL,
   className = "",
 }) {
+  const [ratioW, ratioH] = ratio.split("/").map(Number);
+
+  // El alto se limita acotando el ancho: ancho = alto x proporcion. Asi el
+  // bloque entra en pantalla sin deformar el video ni recortarlo.
+  const altoTope = `calc(${maxVh}svh * ${ratioW} / ${ratioH})`;
+  const cap = maxWidth ? `min(${maxWidth}, ${altoTope})` : altoTope;
   const videoRef = useRef(null);
   const drag = useRef({ active: false, x: 0, t: 0 });
   const raf = useRef(0);
@@ -89,7 +97,13 @@ export default function DragScrubVideo({
     if (!video) return;
     video.pause();
     drag.current = { active: true, x: e.clientX, t: video.currentTime };
-    e.currentTarget.setPointerCapture(e.pointerId);
+    // Puede lanzar si el puntero ya no esta activo; el arrastre funciona
+    // igual sin captura, asi que no vale tumbar el componente por esto.
+    try {
+      e.currentTarget.setPointerCapture(e.pointerId);
+    } catch {
+      /* sin captura */
+    }
     setTouched(true);
   };
 
@@ -100,8 +114,12 @@ export default function DragScrubVideo({
 
   const onPointerUp = (e) => {
     drag.current.active = false;
-    if (e.currentTarget.hasPointerCapture(e.pointerId)) {
-      e.currentTarget.releasePointerCapture(e.pointerId);
+    try {
+      if (e.currentTarget.hasPointerCapture(e.pointerId)) {
+        e.currentTarget.releasePointerCapture(e.pointerId);
+      }
+    } catch {
+      /* ya liberado */
     }
   };
 
@@ -122,7 +140,7 @@ export default function DragScrubVideo({
   };
 
   return (
-    <figure className={className}>
+    <figure className={className} style={{ maxWidth: cap }}>
       {title ? <h4 className={t.tag}>{title}</h4> : null}
       {subtitle ? <p className={`mt-1 ${t.bed}`}>{subtitle}</p> : null}
 
@@ -147,7 +165,8 @@ export default function DragScrubVideo({
           muted
           playsInline
           preload="metadata"
-          className={`pointer-events-none block w-full object-cover ${aspect}`}
+          style={{ aspectRatio: `${ratioW} / ${ratioH}` }}
+          className="pointer-events-none block w-full object-cover"
         />
 
         {/* Pista de uso: se desvanece con el primer arrastre */}

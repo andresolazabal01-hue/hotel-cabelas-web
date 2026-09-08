@@ -50,7 +50,7 @@ export default function Triangulo() {
               src="/videos/apartamento-triangulo.mp4"
               poster="/images/poster-apartamento-triangulo.jpg"
               tone="light"
-              aspect="aspect-[4/5]"
+              ratio="4/5"
               className="mt-10 w-full"
             />
           </div>

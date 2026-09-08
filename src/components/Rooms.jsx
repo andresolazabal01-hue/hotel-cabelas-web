@@ -171,7 +171,8 @@ export default function Rooms() {
               title={r.tag}
               subtitle={r.bed}
               tone="dark"
-              className="mx-auto w-full max-w-[360px] sm:mx-0"
+              maxWidth="360px"
+              className="mx-auto w-full sm:mx-0"
             />
           ))}
         </div>
