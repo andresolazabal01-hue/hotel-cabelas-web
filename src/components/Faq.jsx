@@ -27,7 +27,7 @@ const FAQS = [
 
 export default function Faq() {
   return (
-    <section id="preguntas" className="bg-sand py-24 md:py-36">
+    <section id="preguntas" className="fondo-sand py-24 md:py-36">
       <div className="mx-auto max-w-7xl px-6 md:px-10">
         <div className="mb-14 md:mb-20">
           <p className="section-label">Preguntas frecuentes</p>

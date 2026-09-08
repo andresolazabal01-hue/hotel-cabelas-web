@@ -2,7 +2,7 @@ import { PHONE_DISPLAY, WHATSAPP_URL } from "../data.js";
 
 export default function Booking() {
   return (
-    <section className="relative overflow-hidden bg-ink py-28 md:py-40">
+    <section className="relative overflow-hidden fondo-ink py-28 md:py-40">
       <span className="pointer-events-none absolute -bottom-8 left-1/2 -translate-x-1/2 font-display text-[22vw] leading-none font-normal whitespace-nowrap text-white/[0.04] select-none">
         CABELAS
       </span>
@@ -16,7 +16,7 @@ export default function Booking() {
           Sin comisiones de terceros.
         </h2>
 
-        <p className="mx-auto mt-8 max-w-lg text-base leading-relaxed text-white/55">
+        <p className="mx-auto mt-8 max-w-lg text-base leading-relaxed text-white/62">
           El precio de viajero —{" "}
           <span className="text-white/80">
             Q290 a Q350 la noche de lunes a viernes
@@ -24,7 +24,7 @@ export default function Booking() {
           — solo existe reservando con nosotros. Ninguna plataforma lo tiene,
           porque ninguna plataforma se queda con una comisión de por medio.
         </p>
-        <p className="mx-auto mt-4 max-w-md text-base leading-relaxed text-white/55">
+        <p className="mx-auto mt-4 max-w-md text-base leading-relaxed text-white/62">
           Escríbenos por WhatsApp y confirma tu habitación en minutos, a
           cualquier hora del día. Sin anticipo para apartar.
         </p>

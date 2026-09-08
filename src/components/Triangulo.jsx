@@ -16,7 +16,7 @@ const STAYS = [
 
 export default function Triangulo() {
   return (
-    <section id="triangulo" className="bg-cream py-24 md:py-36">
+    <section id="triangulo" className="fondo-cream py-24 md:py-36">
       <div className="mx-auto max-w-7xl px-6 md:px-10">
         <div className="mb-14 flex flex-col gap-6 md:mb-20 md:flex-row md:items-end md:justify-between">
           <div>
@@ -71,12 +71,12 @@ export default function Triangulo() {
               ))}
             </dl>
 
-            <div className="mt-8 rounded-panel bg-charcoal p-8 md:p-9">
+            <div className="mt-8 rounded-panel fondo-charcoal p-8 md:p-9">
               <p className="text-sm text-brand-soft">Estadías largas</p>
               <p className="display-soft mt-4 font-display text-2xl leading-snug font-normal text-white">
                 También se renta por mes.
               </p>
-              <p className="mt-4 text-sm leading-relaxed text-white/55">
+              <p className="mt-4 text-sm leading-relaxed text-white/62">
                 Es la opción para quien llega a Mazatenango por un proyecto y
                 necesita un lugar fijo. Escríbenos con las fechas y te cotizamos
                 el mes completo.

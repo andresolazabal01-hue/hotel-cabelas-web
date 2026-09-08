@@ -9,7 +9,7 @@ import {
 
 export default function Footer() {
   return (
-    <footer id="contacto" className="bg-charcoal pt-20 pb-8 md:pt-28">
+    <footer id="contacto" className="fondo-charcoal pt-20 pb-8 md:pt-28">
       <div className="mx-auto max-w-7xl px-6 md:px-10">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
           <div>

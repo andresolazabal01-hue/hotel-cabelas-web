@@ -7,7 +7,7 @@ const STATS = [
 
 export default function Intro() {
   return (
-    <section id="hotel" className="bg-cream py-24 md:py-36">
+    <section id="hotel" className="fondo-cream py-24 md:py-36">
       <div className="mx-auto max-w-7xl px-6 md:px-10">
         <div className="grid gap-16 lg:grid-cols-2 lg:items-center">
           <div>
@@ -53,7 +53,7 @@ export default function Intro() {
             {/* El contenedor toma la proporción real del archivo (2000x1124),
                 así la fachada entra completa y no queda borde recortado.
                 El fondo crema cubre cualquier sobrante de redondeo. */}
-            <div className="relative aspect-[500/281] overflow-hidden rounded-panel bg-cream">
+            <div className="relative aspect-[500/281] overflow-hidden rounded-panel fondo-cream">
               <img
                 src="/images/foto-fachada.jpg"
                 alt="Fachada de Hotel Cabelas"
@@ -61,7 +61,7 @@ export default function Intro() {
                 className="h-full w-full object-contain"
               />
             </div>
-            <div className="absolute -bottom-5 left-6 rounded-panel bg-charcoal px-6 py-4">
+            <div className="absolute -bottom-5 left-6 rounded-panel fondo-charcoal px-6 py-4">
               <p className="font-display text-sm font-medium text-white">
                 Abierto 24 horas
               </p>

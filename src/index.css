@@ -61,6 +61,43 @@ body {
   letter-spacing: 0.01em;
 }
 
+/* Tinte global ligado al scroll. Solo tiñe superficies: el texto no se
+   toca, así el contraste no depende del recorrido. El 12% es el máximo
+   que no baja ningún texto por debajo de 4.5:1. */
+:root {
+  --tinte: #94a3ba;
+}
+
+.fondo-cream,
+.fondo-sand,
+.fondo-deep,
+.fondo-ink,
+.fondo-charcoal {
+  transition: background-color 120ms linear;
+}
+
+/* La primera declaración es el respaldo si color-mix no está disponible. */
+.fondo-cream {
+  background-color: var(--color-cream);
+  background-color: color-mix(in srgb, var(--color-cream) 88%, var(--tinte));
+}
+.fondo-sand {
+  background-color: var(--color-sand);
+  background-color: color-mix(in srgb, var(--color-sand) 88%, var(--tinte));
+}
+.fondo-deep {
+  background-color: var(--color-deep);
+  background-color: color-mix(in srgb, var(--color-deep) 88%, var(--tinte));
+}
+.fondo-ink {
+  background-color: var(--color-ink);
+  background-color: color-mix(in srgb, var(--color-ink) 88%, var(--tinte));
+}
+.fondo-charcoal {
+  background-color: var(--color-charcoal);
+  background-color: color-mix(in srgb, var(--color-charcoal) 88%, var(--tinte));
+}
+
 /* Cinta de texto en movimiento */
 @keyframes marquee {
   from {

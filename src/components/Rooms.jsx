@@ -57,7 +57,7 @@ const CAPACITY = [
 
 export default function Rooms() {
   return (
-    <section id="habitaciones" className="bg-deep py-24 md:py-36">
+    <section id="habitaciones" className="fondo-deep py-24 md:py-36">
       <div className="mx-auto max-w-7xl px-6 md:px-10">
         <div className="mb-14 flex flex-col gap-6 md:mb-20 md:flex-row md:items-end md:justify-between">
           <div>
@@ -66,7 +66,7 @@ export default function Rooms() {
               23 habitaciones, tres tipos, el mismo estándar.
             </h2>
           </div>
-          <p className="max-w-sm text-sm leading-relaxed text-cream/50">
+          <p className="max-w-sm text-sm leading-relaxed text-cream/60">
             Las 23 incluyen aire acondicionado, TV y wifi, y se mantienen con el
             estándar de limpieza que destacan las reseñas. La diferencia entre
             un tipo y otro está en la cama, no en el cuidado.
@@ -118,7 +118,10 @@ export default function Rooms() {
         {/* Los tres tipos: una sola tabla con filetes, no tres tarjetas */}
         <div className="mt-14 grid gap-px overflow-hidden rounded-panel bg-white/10 md:mt-16 lg:grid-cols-3">
           {TYPES.map((t) => (
-            <article key={t.tag} className="flex flex-col bg-deep p-7 md:p-8">
+            <article
+              key={t.tag}
+              className="flex flex-col fondo-deep p-7 md:p-8"
+            >
               <h4 className="font-display text-xl font-medium text-cream">
                 {t.tag}
               </h4>

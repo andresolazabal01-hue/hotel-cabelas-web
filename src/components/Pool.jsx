@@ -15,7 +15,7 @@ const POINTS = [
 
 export default function Pool() {
   return (
-    <section id="piscina" className="bg-deep py-24 md:py-36">
+    <section id="piscina" className="fondo-deep py-24 md:py-36">
       <div className="mx-auto max-w-7xl px-6 md:px-10">
         <div className="mb-14 flex flex-col gap-6 md:mb-20 md:flex-row md:items-end md:justify-between">
           <div>
@@ -24,7 +24,7 @@ export default function Pool() {
               Piscina incluida, a un paso del hotel.
             </h2>
           </div>
-          <p className="max-w-sm text-sm leading-relaxed text-cream/50">
+          <p className="max-w-sm text-sm leading-relaxed text-cream/60">
             Nuestros huéspedes tienen acceso gratuito a la piscina del
             Restaurante El Pirata, contiguo a Cabelas. No es parte del hotel: es
             un beneficio que tienes por hospedarte con nosotros.
