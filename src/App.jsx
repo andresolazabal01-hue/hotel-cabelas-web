@@ -7,7 +7,6 @@ import Marquee from "./components/Marquee.jsx";
 import Rooms from "./components/Rooms.jsx";
 import Triangulo from "./components/Triangulo.jsx";
 import Pool from "./components/Pool.jsx";
-import Tour from "./components/Tour.jsx";
 import Why from "./components/Why.jsx";
 import Faq from "./components/Faq.jsx";
 import Booking from "./components/Booking.jsx";
@@ -40,7 +39,6 @@ export default function App() {
         <Rooms />
         <Triangulo />
         <Pool />
-        <Tour />
         <Why />
         <Faq />
         <Booking />

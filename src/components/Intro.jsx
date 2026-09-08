@@ -66,8 +66,8 @@ export default function Intro() {
             >
               <motion.img
                 style={{ y: imgY }}
-                src="/images/foto-principal.jpg"
-                alt="Hotel Cabelas"
+                src="/images/foto-fachada.jpg"
+                alt="Fachada de Hotel Cabelas"
                 loading="lazy"
                 className="aspect-[4/5] w-full scale-110 object-cover md:aspect-[3/4]"
               />

@@ -1,3 +1,4 @@
+import DragScrubVideo from "./DragScrubVideo.jsx";
 import { WHATSAPP_URL } from "../data.js";
 
 const FACTS = [
@@ -43,6 +44,13 @@ export default function Triangulo() {
               entra en el precio de viajero ni en ningún otro descuento — sabes
               desde el inicio exactamente cuánto vas a pagar.
             </p>
+
+            <DragScrubVideo
+              src="/videos/apartamento-triangulo.mp4"
+              poster="/images/poster-apartamento-triangulo.jpg"
+              tone="light"
+              className="mt-10 w-full max-w-[360px]"
+            />
 
             <dl className="mt-12 grid gap-8 border-t border-charcoal/10 pt-10 sm:grid-cols-3">
               {FACTS.map((f) => (

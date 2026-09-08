@@ -1,3 +1,4 @@
+import DragScrubVideo from "./DragScrubVideo.jsx";
 import { WHATSAPP_URL } from "../data.js";
 
 const GALLERY = [
@@ -58,6 +59,22 @@ const INCLUDED = [
   "Aire acondicionado",
   "TV",
   "Baño privado",
+];
+
+// Recorridos grabados. Solo dos de los tres tipos tienen video.
+const RECORDINGS = [
+  {
+    tag: "Tipo 1",
+    bed: "2 camas matrimoniales",
+    src: "/videos/habitacion-2-matrimoniales.mp4",
+    poster: "/images/poster-habitacion-2-matrimoniales.jpg",
+  },
+  {
+    tag: "Tipo 3",
+    bed: "Cama extra size",
+    src: "/videos/habitacion-extra-size.mp4",
+    poster: "/images/poster-habitacion-extra-size.jpg",
+  },
 ];
 
 const CAPACITY = [
@@ -196,6 +213,21 @@ export default function Rooms() {
               </dl>
               <p className="mt-6 text-xs text-cream/35">Precios por noche</p>
             </article>
+          ))}
+        </div>
+
+        {/* Recorrido de cada tipo, junto a su propia tarifa */}
+        <div className="mt-14 grid gap-12 sm:grid-cols-2 sm:gap-8 md:mt-16">
+          {RECORDINGS.map((r) => (
+            <DragScrubVideo
+              key={r.src}
+              src={r.src}
+              poster={r.poster}
+              title={r.tag}
+              subtitle={r.bed}
+              tone="dark"
+              className="mx-auto w-full max-w-[360px] sm:mx-0"
+            />
           ))}
         </div>
 
