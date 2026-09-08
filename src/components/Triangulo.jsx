@@ -32,9 +32,10 @@ export default function Triangulo() {
           </p>
         </div>
 
-        <div className="grid gap-12 lg:grid-cols-3 lg:gap-10">
-          {/* El cuerpo va abierto sobre el fondo: no necesita caja */}
-          <div className="lg:col-span-2">
+        {/* items-start: cada columna mide lo suyo y la tarjeta no se estira */}
+        <div className="grid items-start gap-12 lg:grid-cols-12 lg:gap-10">
+          {/* El video manda en esta columna: va a ancho completo */}
+          <div className="lg:col-span-7">
             <p className="display-soft max-w-xl font-display text-[1.5rem] leading-[1.22] font-normal text-charcoal md:text-[1.9rem]">
               Hasta 4 personas, con dos sofás cama, por{" "}
               <span className="text-brand-dark">Q600 la noche</span>.
@@ -49,10 +50,15 @@ export default function Triangulo() {
               src="/videos/apartamento-triangulo.mp4"
               poster="/images/poster-apartamento-triangulo.jpg"
               tone="light"
-              className="mt-10 w-full max-w-[360px]"
+              aspect="aspect-[4/5]"
+              className="mt-10 w-full"
             />
+          </div>
 
-            <dl className="mt-12 grid gap-8 border-t border-charcoal/10 pt-10 sm:grid-cols-3">
+          {/* Las cifras bajan junto a la tarjeta para equilibrar la columna,
+              que queda fija mientras se recorre el video. */}
+          <div className="lg:sticky lg:top-28 lg:col-span-5">
+            <dl className="grid grid-cols-3 gap-6 border-t border-charcoal/10 pt-8">
               {FACTS.map((f) => (
                 <div key={f.label}>
                   <dt className="font-display text-3xl font-medium text-charcoal">
@@ -64,11 +70,8 @@ export default function Triangulo() {
                 </div>
               ))}
             </dl>
-          </div>
 
-          {/* Único panel lleno de la sección: es el bloque de acción */}
-          <div className="flex flex-col justify-between gap-8 rounded-panel bg-charcoal p-8 md:p-10">
-            <div>
+            <div className="mt-8 rounded-panel bg-charcoal p-8 md:p-9">
               <p className="text-sm text-brand-soft">Estadías largas</p>
               <p className="display-soft mt-4 font-display text-2xl leading-snug font-normal text-white">
                 También se renta por mes.
@@ -79,19 +82,19 @@ export default function Triangulo() {
                 el mes completo.
               </p>
 
-              <p className="mt-7 text-sm leading-relaxed text-white/40">
+              <p className="mt-6 text-sm leading-relaxed text-white/40">
                 {STAYS.join(" · ")}
               </p>
-            </div>
 
-            <a
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-control bg-brand px-6 py-3.5 text-center text-sm font-medium text-white transition-colors hover:bg-brand-dark"
-            >
-              Consultar El Triángulo
-            </a>
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-8 block rounded-control bg-brand px-6 py-3.5 text-center text-sm font-medium text-white transition-colors hover:bg-brand-dark"
+              >
+                Consultar El Triángulo
+              </a>
+            </div>
           </div>
         </div>
       </div>

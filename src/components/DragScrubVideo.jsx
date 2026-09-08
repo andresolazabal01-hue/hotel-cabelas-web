@@ -24,6 +24,7 @@ export default function DragScrubVideo({
   title,
   subtitle,
   tone = "dark",
+  aspect = "aspect-[9/16]",
   secondsPerPixel = SECONDS_PER_PIXEL,
   className = "",
 }) {
@@ -146,17 +147,17 @@ export default function DragScrubVideo({
           muted
           playsInline
           preload="metadata"
-          className="pointer-events-none block aspect-[9/16] w-full object-cover"
+          className={`pointer-events-none block w-full object-cover ${aspect}`}
         />
 
         {/* Pista de uso: se desvanece con el primer arrastre */}
         <div
           aria-hidden="true"
-          className={`pointer-events-none absolute inset-x-0 bottom-0 flex justify-center pb-5 transition-opacity duration-500 ${
+          className={`pointer-events-none absolute inset-x-0 bottom-0 flex justify-center bg-linear-to-t from-ink/70 to-transparent pt-12 pb-5 transition-opacity duration-500 ${
             touched ? "opacity-0" : "opacity-100"
           }`}
         >
-          <span className="flex items-center gap-2 rounded-control bg-ink/70 px-3 py-2 text-xs text-white/85 backdrop-blur-sm">
+          <span className="flex items-center gap-2.5 rounded-control bg-ink/75 px-4 py-2.5 text-sm text-white backdrop-blur-sm">
             <svg
               viewBox="0 0 24 24"
               fill="none"
@@ -164,7 +165,7 @@ export default function DragScrubVideo({
               strokeWidth="1.6"
               strokeLinecap="round"
               strokeLinejoin="round"
-              className="size-4"
+              className="size-[18px]"
             >
               <path d="M6.5 9 3.5 12l3 3" />
               <path d="m17.5 9 3 3-3 3" />
