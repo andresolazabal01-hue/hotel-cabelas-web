@@ -8,8 +8,12 @@ const TYPES = [
     bed: "2 camas matrimoniales",
     normal: "Q450",
     traveler: "Q350",
+    src: "/videos/habitacion-2-matrimoniales.mp4",
+    poster: "/images/poster-habitacion-2-matrimoniales.jpg",
   },
   {
+    // Sin grabación todavía: la tarjeta lleva su propio tratamiento.
+    // Cuando haya foto de este tipo, entra aquí como src/poster.
     tag: "Tipo 2",
     range: "Habitaciones 9 a 17",
     bed: "1 cama matrimonial",
@@ -22,6 +26,8 @@ const TYPES = [
     bed: "Cama extra size",
     normal: "Q450",
     traveler: "Q350",
+    src: "/videos/habitacion-extra-size.mp4",
+    poster: "/images/poster-habitacion-extra-size.jpg",
   },
 ];
 
@@ -32,22 +38,6 @@ const INCLUDED = [
   "Aire acondicionado",
   "TV",
   "Baño privado",
-];
-
-// Recorridos grabados. Solo dos de los tres tipos tienen video.
-const RECORDINGS = [
-  {
-    tag: "Tipo 1",
-    bed: "2 camas matrimoniales",
-    src: "/videos/habitacion-2-matrimoniales.mp4",
-    poster: "/images/poster-habitacion-2-matrimoniales.jpg",
-  },
-  {
-    tag: "Tipo 3",
-    bed: "Cama extra size",
-    src: "/videos/habitacion-extra-size.mp4",
-    poster: "/images/poster-habitacion-extra-size.jpg",
-  },
 ];
 
 const CAPACITY = [
@@ -135,7 +125,37 @@ export default function Rooms() {
               <p className="mt-1 text-xs text-cream/45">{t.range}</p>
               <p className="mt-3 text-sm text-brand-soft">{t.bed}</p>
 
-              <dl className="mt-8 space-y-4">
+              {t.src ? (
+                <DragScrubVideo
+                  src={t.src}
+                  poster={t.poster}
+                  tone="dark"
+                  ratio="4/5"
+                  className="mt-6 w-full"
+                />
+              ) : (
+                /* Tipo 2 aún no tiene grabación. En vez de un hueco, la
+                   ranura lleva su propio tratamiento y el mismo filete
+                   bajo la media, para que la fila no se descuadre. */
+                <figure
+                  className="mt-6 w-full"
+                  style={{ maxWidth: "calc(70svh * 4 / 5)" }}
+                >
+                  <div className="grid aspect-[4/5] place-items-center rounded-panel border border-brand-soft/25 bg-linear-to-b from-brand/25 to-brand/5">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      className="size-20 text-brand-soft/45"
+                      aria-hidden="true"
+                    >
+                      <path d="M4 7h16a2 2 0 012 2v3h-2v6h-2v-2H6v2H4v-6H2V9a2 2 0 012-2zm0 2v3h16V9H4zm2-5h12v2H6V4z" />
+                    </svg>
+                  </div>
+                  <div className="mt-3 h-[3px] w-full bg-white/10" />
+                </figure>
+              )}
+
+              <dl className="mt-auto space-y-4 pt-8">
                 <div className="flex items-baseline justify-between gap-4">
                   <dt className="text-sm whitespace-nowrap text-cream/55">
                     Precio normal
@@ -161,24 +181,8 @@ export default function Rooms() {
           ))}
         </div>
 
-        {/* Recorrido de cada tipo, junto a su propia tarifa */}
-        <div className="mt-14 grid gap-12 sm:grid-cols-2 sm:gap-8 md:mt-16">
-          {RECORDINGS.map((r) => (
-            <DragScrubVideo
-              key={r.src}
-              src={r.src}
-              poster={r.poster}
-              title={r.tag}
-              subtitle={r.bed}
-              tone="dark"
-              maxWidth="360px"
-              className="mx-auto w-full sm:mx-0"
-            />
-          ))}
-        </div>
-
         {/* Habitación 5 — banda de énfasis, con otro peso que la tabla */}
-        <div className="mt-4 flex flex-col gap-7 rounded-panel bg-brand/20 p-8 sm:flex-row sm:items-center sm:justify-between md:p-12">
+        <div className="mt-5 flex flex-col gap-7 rounded-panel bg-brand/20 p-8 sm:flex-row sm:items-center sm:justify-between md:p-12">
           <div>
             <p className="mb-4 text-sm text-brand-soft">Habitación 5</p>
             <p className="display-soft font-display text-[1.7rem] leading-[1.15] font-normal text-cream md:text-[2.2rem]">
