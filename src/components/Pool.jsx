@@ -31,6 +31,20 @@ export default function Pool() {
           </p>
         </div>
 
+        {/* El contenedor toma la proporción real del archivo (1104x1472),
+            así la piscina entra completa y no queda borde recortado. Mismo
+            tratamiento que la fachada en "El hotel". */}
+        <figure className="mb-14 w-full max-w-[min(32rem,calc(72svh*3/4))] md:mb-20">
+          <div className="aspect-[3/4] overflow-hidden rounded-panel bg-deep">
+            <img
+              src="/images/piscina-1.jpg"
+              alt="Piscina del Restaurante El Pirata, contigua a Hotel Cabelas"
+              loading="lazy"
+              className="h-full w-full object-contain"
+            />
+          </div>
+        </figure>
+
         {/* Tres apuntes en columnas abiertas, separados por filete */}
         <dl className="grid border-t border-white/10 md:grid-cols-3">
           {POINTS.map((p) => (
