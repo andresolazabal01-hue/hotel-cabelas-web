@@ -1,5 +1,5 @@
 import DragScrubVideo from "./DragScrubVideo.jsx";
-import { WHATSAPP_URL } from "../data.js";
+import { abrirReserva, TIPOS } from "../reserva.js";
 
 const TYPES = [
   {
@@ -117,7 +117,7 @@ export default function Rooms() {
 
         {/* Los tres tipos: una sola tabla con filetes, no tres tarjetas */}
         <div className="mt-14 grid gap-px overflow-hidden rounded-panel bg-white/10 md:mt-16 lg:grid-cols-3">
-          {TYPES.map((t) => (
+          {TYPES.map((t, i) => (
             <article key={t.tag} className="flex flex-col bg-deep p-7 md:p-8">
               <h4 className="font-display text-xl font-medium text-cream">
                 {t.tag}
@@ -177,6 +177,14 @@ export default function Rooms() {
                 </div>
               </dl>
               <p className="mt-6 text-xs text-cream/35">Precios por noche</p>
+
+              <button
+                type="button"
+                onClick={() => abrirReserva(TIPOS[i])}
+                className="mt-6 w-full rounded-control border border-brand-soft/40 px-6 py-3 text-sm font-medium text-cream transition-colors hover:border-brand-soft hover:bg-brand-soft/10"
+              >
+                Reservar
+              </button>
             </article>
           ))}
         </div>
@@ -194,14 +202,13 @@ export default function Rooms() {
               número al momento de reservar.
             </p>
           </div>
-          <a
-            href={WHATSAPP_URL}
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            type="button"
+            onClick={() => abrirReserva(TIPOS[0])}
             className="shrink-0 self-start rounded-control border border-brand-soft/40 px-6 py-3 text-sm font-medium text-cream transition-colors hover:border-brand-soft hover:bg-brand-soft/10 sm:self-auto"
           >
             Preguntar por la 5
-          </a>
+          </button>
         </div>
 
         {/* Qué incluye — bloque abierto, sin caja ni pastillas */}
@@ -228,14 +235,13 @@ export default function Rooms() {
         </div>
 
         <div className="mt-16 text-center">
-          <a
-            href={WHATSAPP_URL}
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            type="button"
+            onClick={() => abrirReserva()}
             className="inline-block rounded-control bg-brand px-8 py-3.5 text-sm font-medium text-white transition-colors hover:bg-brand-dark"
           >
             Consultar disponibilidad
-          </a>
+          </button>
         </div>
       </div>
     </section>

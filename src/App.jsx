@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import Lenis from "lenis";
+import ReservaModal from "./components/ReservaModal.jsx";
 import Nav from "./components/Nav.jsx";
 import Hero from "./components/Hero.jsx";
 import Intro from "./components/Intro.jsx";
@@ -44,6 +45,7 @@ export default function App() {
         <Booking />
       </main>
       <Footer />
+      <ReservaModal />
     </>
   );
 }

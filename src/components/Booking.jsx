@@ -1,4 +1,5 @@
-import { PHONE_DISPLAY, WHATSAPP_URL } from "../data.js";
+import { PHONE_DISPLAY } from "../data.js";
+import { abrirReserva } from "../reserva.js";
 
 export default function Booking() {
   return (
@@ -30,10 +31,9 @@ export default function Booking() {
         </p>
 
         <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <a
-            href={WHATSAPP_URL}
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            type="button"
+            onClick={() => abrirReserva()}
             className="flex items-center gap-3 rounded-control bg-brand px-8 py-4 text-base font-medium text-white transition-colors hover:bg-brand-dark"
           >
             <svg
@@ -45,7 +45,7 @@ export default function Booking() {
               <path d="M12 2a10 10 0 00-8.5 15.3L2 22l4.9-1.4A10 10 0 1012 2zm0 18.2a8.2 8.2 0 01-4.2-1.2l-.3-.2-3 .9.9-2.9-.2-.3A8.2 8.2 0 1112 20.2zm4.6-6.1c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.3-.6.8-.8 1-.1.2-.3.2-.5.1a6.7 6.7 0 01-3.4-3c-.3-.4 0-.5.1-.7l.4-.5c.1-.2.2-.3.3-.5v-.5c0-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.1s.9 2.5 1 2.6c.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2l-.4-.3z" />
             </svg>
             WhatsApp {PHONE_DISPLAY}
-          </a>
+          </button>
           <span className="text-sm text-white/40">
             Respuesta a cualquier hora · 24/7
           </span>

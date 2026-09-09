@@ -1,4 +1,5 @@
 export const PHONE_DISPLAY = "+502 4283 2404";
+export const WHATSAPP_NUMERO = "50242832404";
 
 export const WHATSAPP_URL =
   "https://wa.me/50242832404?text=" +

@@ -1,5 +1,5 @@
 import DragScrubVideo from "./DragScrubVideo.jsx";
-import { WHATSAPP_URL } from "../data.js";
+import { abrirReserva, TIPOS } from "../reserva.js";
 
 const FACTS = [
   { value: "4", label: "Personas como máximo" },
@@ -86,14 +86,13 @@ export default function Triangulo() {
                 {STAYS.join(" · ")}
               </p>
 
-              <a
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-8 block rounded-control bg-brand px-6 py-3.5 text-center text-sm font-medium text-white transition-colors hover:bg-brand-dark"
+              <button
+                type="button"
+                onClick={() => abrirReserva(TIPOS[3])}
+                className="mt-8 block w-full rounded-control bg-brand px-6 py-3.5 text-center text-sm font-medium text-white transition-colors hover:bg-brand-dark"
               >
                 Consultar El Triángulo
-              </a>
+              </button>
             </div>
           </div>
         </div>

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { WHATSAPP_URL } from "../data.js";
+import { abrirReserva } from "../reserva.js";
 
 const LINKS = [
   { href: "#hotel", label: "El hotel" },
@@ -111,14 +111,13 @@ export default function Nav() {
           </ul>
 
           <div className="flex items-center gap-2">
-            <a
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              type="button"
+              onClick={() => abrirReserva()}
               className="rounded-control bg-brand px-5 py-2 text-sm font-medium text-white transition-colors hover:bg-brand-dark"
             >
               Reservar
-            </a>
+            </button>
 
             {/* Menú de pantallas chicas: aparece donde los enlaces se ocultan */}
             <button
