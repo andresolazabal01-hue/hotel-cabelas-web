@@ -17,50 +17,46 @@ export default function Pool() {
   return (
     <section id="piscina" className="bg-deep py-24 md:py-36">
       <div className="mx-auto max-w-7xl px-6 md:px-10">
-        <div className="mb-14 flex flex-col gap-6 md:mb-20 md:flex-row md:items-end md:justify-between">
+        <div className="grid items-start gap-10 lg:grid-cols-2 lg:gap-14">
+          {/* Todo el texto en una sola columna, en orden vertical */}
           <div>
             <p className="section-label-invert">Piscina</p>
             <h2 className="display-soft max-w-xl font-display text-[2rem] leading-[1.1] font-normal text-cream md:text-[2.5rem] lg:text-[3.1rem]">
               Piscina incluida, a un paso del hotel.
             </h2>
-          </div>
-          <p className="max-w-sm text-sm leading-relaxed text-cream/60">
-            Nuestros huéspedes tienen acceso gratuito a la piscina del
-            Restaurante El Pirata, contiguo a Cabelas. No es parte del hotel: es
-            un beneficio que tienes por hospedarte con nosotros.
-          </p>
-        </div>
+            <p className="mt-6 max-w-xl text-base leading-relaxed text-cream/60">
+              Nuestros huéspedes tienen acceso gratuito a la piscina del
+              Restaurante El Pirata, contiguo a Cabelas. No es parte del hotel:
+              es un beneficio que tienes por hospedarte con nosotros.
+            </p>
 
-        {/* El contenedor toma la proporción real del archivo (1104x1472),
-            así la piscina entra completa y no queda borde recortado. Mismo
-            tratamiento que la fachada en "El hotel". */}
-        <figure className="mb-14 w-full max-w-[min(32rem,calc(72svh*3/4))] md:mb-20">
-          <div className="aspect-[3/4] overflow-hidden rounded-panel bg-deep">
+            <dl className="mt-12 border-t border-white/10">
+              {POINTS.map((p) => (
+                <div key={p.title} className="border-b border-white/10 py-7">
+                  <dt className="font-display text-lg font-medium text-cream">
+                    {p.title}
+                  </dt>
+                  <dd className="mt-2 text-sm leading-relaxed text-cream/55">
+                    {p.text}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+
+          {/* El contenedor va con items-start. En escritorio la foto sale
+              del flujo (absolute) para no imponer su propio alto: así la
+              fila la mide el texto y la columna se estira a ese alto,
+              quedando ambas parejas y sin aire debajo. */}
+          <figure className="relative w-full overflow-hidden rounded-panel lg:h-full lg:self-stretch">
             <img
               src="/images/piscina-1.jpg"
               alt="Piscina del Restaurante El Pirata, contigua a Hotel Cabelas"
               loading="lazy"
-              className="h-full w-full object-contain"
+              className="aspect-[4/3] w-full object-cover sm:aspect-[16/10] lg:absolute lg:inset-0 lg:aspect-auto lg:h-full"
             />
-          </div>
-        </figure>
-
-        {/* Tres apuntes en columnas abiertas, separados por filete */}
-        <dl className="grid border-t border-white/10 md:grid-cols-3">
-          {POINTS.map((p) => (
-            <div
-              key={p.title}
-              className="border-b border-white/10 py-9 md:border-b-0 md:pr-10 md:pb-0"
-            >
-              <dt className="font-display text-lg font-medium text-cream">
-                {p.title}
-              </dt>
-              <dd className="mt-3 max-w-sm text-sm leading-relaxed text-cream/55">
-                {p.text}
-              </dd>
-            </div>
-          ))}
-        </dl>
+          </figure>
+        </div>
 
         <p className="mt-14 max-w-xl text-sm leading-relaxed text-cream/40">
           La piscina pertenece al Restaurante El Pirata. Los horarios de uso
