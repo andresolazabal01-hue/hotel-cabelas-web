@@ -89,7 +89,7 @@ export default function Triangulo() {
               <button
                 type="button"
                 onClick={() => abrirReserva(TIPOS[3])}
-                className="mt-8 block w-full rounded-control bg-brand px-6 py-3.5 text-center text-sm font-medium text-white transition-colors hover:bg-brand-dark"
+                className="btn-solido mt-8 w-full px-6 py-3.5"
               >
                 Consultar El Triángulo
               </button>

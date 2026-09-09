@@ -34,7 +34,7 @@ export default function Booking() {
           <button
             type="button"
             onClick={() => abrirReserva()}
-            className="flex items-center gap-3 rounded-control bg-brand px-8 py-4 text-base font-medium text-white transition-colors hover:bg-brand-dark"
+            className="btn-solido px-8 py-4 text-base"
           >
             <svg
               viewBox="0 0 24 24"

@@ -58,7 +58,7 @@ export default function Hero() {
               e.preventDefault();
               window.__lenis?.scrollTo("#habitaciones");
             }}
-            className="rounded-control bg-brand px-7 py-3 text-sm font-medium text-white transition-colors hover:bg-brand-dark"
+            className="btn-solido px-7 py-3"
           >
             Ver habitaciones
           </a>

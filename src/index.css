@@ -23,6 +23,9 @@
   --radius-control: 3px;
 }
 
+/* Ventana baja: celular en horizontal, o vertical con el teclado abierto. */
+@custom-variant baja (@media (max-height: 560px));
+
 html {
   background: var(--color-cream);
 }
@@ -80,5 +83,103 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .animate-marquee {
     animation: none;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Controles. Van en la capa de componentes para que cualquier utilidad de
+   Tailwind puesta en el JSX (un text-base, un padding distinto) siga ganando:
+   estas clases fijan el carácter del control, no su tamaño.
+   --------------------------------------------------------------------------- */
+@layer components {
+  /* Sin sombra, sin degradado y con esquina de 3 px. El único gesto al
+     presionar es bajar 1 px: se siente físico sin necesidad de relieve. */
+  .btn-solido,
+  .btn-filete {
+    @apply inline-flex items-center justify-center gap-3 rounded-control text-sm font-medium;
+    transition-property: background-color, border-color, color, transform;
+    transition-duration: 200ms;
+    transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .btn-solido {
+    @apply bg-brand text-white;
+  }
+
+  .btn-solido:hover {
+    @apply bg-brand-dark;
+  }
+
+  /* Solo sobre fondos oscuros, que es donde vive en todo el sitio. */
+  .btn-filete {
+    @apply border border-brand-soft/45 text-cream;
+  }
+
+  .btn-filete:hover {
+    @apply border-brand-soft bg-brand-soft/10;
+  }
+
+  .btn-solido:active,
+  .btn-filete:active {
+    transform: translateY(1px);
+  }
+
+  /* El foco de teclado se ve siempre, y se ve en periwinkle de marca:
+     nunca el azul por omisión del navegador. */
+  .btn-solido:focus-visible,
+  .btn-filete:focus-visible,
+  .foco-marca:focus-visible {
+    outline: 2px solid var(--color-brand-soft);
+    outline-offset: 3px;
+  }
+
+  /* Campos: un filete de 1 px sobre el propio fondo, nada de relieve. El foco
+     lo marca el periwinkle con un halo de 3 px. */
+  .campo {
+    @apply w-full rounded-control border border-white/15 bg-white/6 px-4 py-3.5 text-base text-cream;
+    color-scheme: dark;
+    transition-property: border-color, background-color, box-shadow;
+    transition-duration: 200ms;
+  }
+
+  .campo::placeholder {
+    @apply text-cream/55;
+  }
+
+  .campo:hover {
+    @apply border-white/30;
+  }
+
+  .campo:focus,
+  .campo:focus-visible,
+  .campo[data-abierto="true"] {
+    @apply border-brand-soft bg-white/8;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(148, 163, 186, 0.24);
+  }
+
+  /* La hoja de reserva nunca pasa del alto de la ventana. Con dvh el teclado
+     virtual del celular la encoge en lugar de empujar el botón fuera. */
+  .hoja-reserva {
+    max-height: 90vh;
+  }
+
+  @supports (height: 100dvh) {
+    .hoja-reserva {
+      max-height: 90dvh;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-solido,
+  .btn-filete,
+  .campo {
+    transition-duration: 0ms;
+  }
+
+  .btn-solido:active,
+  .btn-filete:active {
+    transform: none;
   }
 }

@@ -142,7 +142,7 @@ export default function Rooms() {
                   className="mt-6 w-full"
                   style={{ maxWidth: "calc(70svh * 4 / 5)" }}
                 >
-                  <div className="flex aspect-[4/5] items-center rounded-panel bg-linear-to-b from-brand/18 to-brand/5 px-6 md:px-7">
+                  <div className="flex aspect-[4/5] items-center rounded-panel border border-brand-soft/12 bg-brand/12 px-6 md:px-7">
                     <p className="display-soft max-w-sm font-display text-[1.4rem] leading-[1.45] font-normal text-cream/75 sm:max-w-md sm:text-[2rem] lg:max-w-sm lg:text-[1.4rem]">
                       <span className="text-brand-soft">
                         La habitación del viajero.
@@ -181,7 +181,7 @@ export default function Rooms() {
               <button
                 type="button"
                 onClick={() => abrirReserva(TIPOS[i])}
-                className="mt-6 w-full rounded-control border border-brand-soft/40 px-6 py-3 text-sm font-medium text-cream transition-colors hover:border-brand-soft hover:bg-brand-soft/10"
+                className="btn-filete mt-6 w-full px-6 py-3"
               >
                 Reservar
               </button>
@@ -205,7 +205,7 @@ export default function Rooms() {
           <button
             type="button"
             onClick={() => abrirReserva(TIPOS[0])}
-            className="shrink-0 self-start rounded-control border border-brand-soft/40 px-6 py-3 text-sm font-medium text-cream transition-colors hover:border-brand-soft hover:bg-brand-soft/10 sm:self-auto"
+            className="btn-filete shrink-0 self-start px-6 py-3 sm:self-auto"
           >
             Preguntar por la 5
           </button>
@@ -238,7 +238,7 @@ export default function Rooms() {
           <button
             type="button"
             onClick={() => abrirReserva()}
-            className="inline-block rounded-control bg-brand px-8 py-3.5 text-sm font-medium text-white transition-colors hover:bg-brand-dark"
+            className="btn-solido px-8 py-3.5"
           >
             Consultar disponibilidad
           </button>

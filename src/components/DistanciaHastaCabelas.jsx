@@ -95,7 +95,7 @@ export default function DistanciaHastaCabelas() {
         <button
           type="button"
           onClick={calcular}
-          className="w-full rounded-control border border-brand-soft/40 px-6 py-3.5 text-center text-sm font-medium text-cream transition-colors hover:border-brand-soft hover:bg-brand-soft/10"
+          className="btn-filete w-full px-6 py-3.5"
         >
           Calcular mi distancia
         </button>

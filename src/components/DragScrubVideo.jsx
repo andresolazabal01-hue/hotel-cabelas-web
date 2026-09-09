@@ -156,7 +156,7 @@ export default function DragScrubVideo({
         onPointerUp={onPointerUp}
         onPointerCancel={onPointerUp}
         onKeyDown={onKeyDown}
-        className={`relative cursor-ew-resize touch-pan-y overflow-hidden rounded-panel bg-ink select-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-soft ${title ? "mt-5" : ""}`}
+        className={`relative cursor-ew-resize touch-pan-y overflow-hidden rounded-panel bg-ink select-none focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-brand-soft ${title ? "mt-5" : ""}`}
       >
         <video
           ref={videoRef}

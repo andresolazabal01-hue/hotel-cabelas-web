@@ -40,7 +40,7 @@ export default function Footer() {
                     href={WHATSAPP_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm text-white/70 transition-colors hover:text-white"
+                    className="foco-marca rounded-control text-sm text-white/70 transition-colors duration-200 hover:text-white"
                   >
                     {PHONE_DISPLAY} (WhatsApp)
                   </a>
@@ -80,7 +80,7 @@ export default function Footer() {
                 href={WAZE_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-control border border-brand-soft/40 px-6 py-3.5 text-center text-sm font-medium text-cream transition-colors hover:border-brand-soft hover:bg-brand-soft/10"
+                className="btn-filete px-6 py-3.5"
               >
                 Abrir en Waze
               </a>
@@ -88,7 +88,7 @@ export default function Footer() {
                 href={MAPS_DIRECTIONS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-control border border-brand-soft/40 px-6 py-3.5 text-center text-sm font-medium text-cream transition-colors hover:border-brand-soft hover:bg-brand-soft/10"
+                className="btn-filete px-6 py-3.5"
               >
                 Abrir en Google Maps
               </a>
