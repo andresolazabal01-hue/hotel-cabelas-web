@@ -361,7 +361,14 @@ export default function ReservaModal() {
           </p>
         </div>
 
-        <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-6 sm:px-8">
+        {/* data-lenis-prevent: Lenis escucha la rueda y el touchmove a nivel
+            de documento y, mientras está detenido, cancela los dos. Con eso
+            el scroll de esta caja quedaba muerto aunque la barra se viera.
+            El atributo le dice que no toque los gestos que nacen aquí. */}
+        <div
+          data-lenis-prevent
+          className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-6 sm:px-8"
+        >
           {/* Los filetes agrupan: fechas, habitación, personas y detalle son
               cuatro decisiones distintas, no cinco campos separados por el
               mismo hueco repetido. */}
