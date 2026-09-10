@@ -8,10 +8,12 @@ export default function Hero() {
           llena el alto y recorta a los lados: se ve el cuadro entero de arriba
           abajo y el edificio queda en una franja fina entre cielo y adoquin.
           object-position no ayuda porque no sobra nada en vertical. La salida
-          es agrandar el video a 140svh y subirlo, para que la franja del
-          edificio pase del 34% al 48% de la pantalla. */}
+          es agrandar el video a 135svh y subirlo. El anclaje deja el edificio
+          por encima de la insignia y el boton: con el anclaje anterior los
+          autos caian en el 64-74% de la pantalla y el boton, que ocupa el
+          66-72%, los tapaba. Ahora quedan en 52-62%, despejados. */}
       <video
-        className="absolute inset-x-0 top-0 h-svh w-full object-cover retrato:-top-[7.9svh] retrato:h-[140svh]"
+        className="absolute inset-x-0 top-0 h-svh w-full object-cover retrato:-top-[17svh] retrato:h-[135svh]"
         src="/videos/hero.mp4"
         autoPlay
         muted
