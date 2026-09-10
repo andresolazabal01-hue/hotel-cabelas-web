@@ -1,4 +1,3 @@
-import DistanciaHastaCabelas from "./DistanciaHastaCabelas.jsx";
 import {
   ADDRESS,
   MAPS_DIRECTIONS_URL,
@@ -93,10 +92,6 @@ export default function Footer() {
                 Abrir en Google Maps
               </a>
             </div>
-
-            {/* Cierra el bloque de cómo llegar: el permiso se pide solo
-                al tocar el botón, nunca al abrir la página. */}
-            <DistanciaHastaCabelas />
           </div>
         </div>
 
