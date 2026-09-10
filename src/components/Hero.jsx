@@ -40,8 +40,8 @@ export default function Hero() {
           un piso de contraste en cualquier fotograma, y encima el
           degradado, que carga abajo donde estan el texto y los botones y
           afloja arriba para que se siga viendo la fachada. */}
-      <div className="pointer-events-none absolute inset-0 bg-black/20" />
-      <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/85 via-black/70 via-65% to-black/30" />
+      <div className="pointer-events-none absolute inset-0 bg-black/18" />
+      <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/75 via-black/62 via-65% to-black/26" />
 
       {/* Contenido centrado. La entrada del hero es el único momento
           animado del sitio: el resto se sostiene quieto. */}
