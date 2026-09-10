@@ -1,19 +1,44 @@
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
+const VERTICAL = "(max-aspect-ratio: 3/4)";
+
 export default function Hero() {
+  // El relleno borroso solo existe en vertical. Montarlo siempre significaria
+  // un segundo video decodificando en escritorio sin que llegue a verse.
+  const [vertical, setVertical] = useState(
+    () => window.matchMedia(VERTICAL).matches,
+  );
+
+  useEffect(() => {
+    const consulta = window.matchMedia(VERTICAL);
+    const alCambiar = (e) => setVertical(e.matches);
+    consulta.addEventListener("change", alCambiar);
+    return () => consulta.removeEventListener("change", alCambiar);
+  }, []);
+
   return (
     <section className="relative h-svh overflow-hidden bg-ink">
-      {/* Video horizontal de fondo en bucle */}
-      {/* En vertical la caja es mucho mas alta que 16:9, asi que object-cover
-          llena el alto y recorta a los lados: se ve el cuadro entero de arriba
-          abajo y el edificio queda en una franja fina entre cielo y adoquin.
-          object-position no ayuda porque no sobra nada en vertical. La salida
-          es agrandar el video a 135svh y subirlo. El anclaje deja el edificio
-          por encima de la insignia y el boton: con el anclaje anterior los
-          autos caian en el 64-74% de la pantalla y el boton, que ocupa el
-          66-72%, los tapaba. Ahora quedan en 52-62%, despejados. */}
+      {/* En vertical el cuadro se muestra completo con object-contain, lo que
+          deja franjas libres arriba y abajo: el video es 16:9 y la pantalla
+          no. Esas franjas las llena una copia del mismo video, ampliada y
+          desenfocada, para que el hueco no se lea como un vacio. La copia
+          va detras y no la ve un lector de pantalla. */}
+      {vertical ? (
+        <video
+          aria-hidden="true"
+          className="absolute inset-0 h-full w-full scale-110 object-cover opacity-50 blur-2xl"
+          src="/videos/hero.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+        />
+      ) : null}
+
+      {/* En escritorio sigue cubriendo, que es como ya se veia bien. */}
       <video
-        className="absolute inset-x-0 top-0 h-svh w-full object-cover retrato:-top-[17svh] retrato:h-[135svh]"
+        className="absolute inset-0 h-full w-full object-cover retrato:object-contain"
         src="/videos/hero.mp4"
         autoPlay
         muted
