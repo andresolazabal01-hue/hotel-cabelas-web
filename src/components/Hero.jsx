@@ -4,8 +4,14 @@ export default function Hero() {
   return (
     <section className="relative h-svh overflow-hidden bg-ink">
       {/* Video horizontal de fondo en bucle */}
+      {/* En vertical la caja es mucho mas alta que 16:9, asi que object-cover
+          llena el alto y recorta a los lados: se ve el cuadro entero de arriba
+          abajo y el edificio queda en una franja fina entre cielo y adoquin.
+          object-position no ayuda porque no sobra nada en vertical. La salida
+          es agrandar el video a 140svh y subirlo, para que la franja del
+          edificio pase del 34% al 48% de la pantalla. */}
       <video
-        className="absolute inset-0 h-svh w-full object-cover"
+        className="absolute inset-x-0 top-0 h-svh w-full object-cover retrato:-top-[7.9svh] retrato:h-[140svh]"
         src="/videos/hero.mp4"
         autoPlay
         muted
