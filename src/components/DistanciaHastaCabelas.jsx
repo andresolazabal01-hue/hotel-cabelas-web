@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { CABELAS_COORDS } from "../data.js";
 
 // El recorrido en carretera siempre es mayor que la línea recta: 1.4 es
@@ -42,27 +42,48 @@ export default function DistanciaHastaCabelas() {
   const [estado, setEstado] = useState("inicial");
   const [resultado, setResultado] = useState(null);
 
-  // Sin soporte o con permiso denegado el bloque desaparece: la dirección
-  // completa ya está en esta misma sección, así que no falta nada.
-  if (estado === "sin-resultado") return null;
+  const guardia = useRef(0);
+  const contestado = useRef(false);
+
+  useEffect(() => () => clearTimeout(guardia.current), []);
 
   const calcular = () => {
-    if (!("geolocation" in navigator)) {
-      setEstado("sin-resultado");
+    // El navegador integrado de WhatsApp o Instagram a veces ni expone la
+    // API. Se comprueba antes de tocarla.
+    if (!navigator.geolocation?.getCurrentPosition) {
+      setEstado("error");
       return;
     }
-    setEstado("calculando");
+
+    contestado.current = false;
+    const cerrar = (siguiente) => {
+      if (contestado.current) return;
+      contestado.current = true;
+      clearTimeout(guardia.current);
+      siguiente();
+    };
+
+    // Cuando el permiso está bloqueado por la app anfitriona, algunos
+    // navegadores no llaman de vuelta ni al éxito ni al error, ni respetan
+    // su propio timeout: el botón se quedaría girando para siempre.
+    guardia.current = setTimeout(() => cerrar(() => setEstado("error")), 6000);
+
+    // La llamada va aquí mismo, sin nada asíncrono de por medio: varios
+    // navegadores solo muestran el permiso si sale del gesto del usuario.
     navigator.geolocation.getCurrentPosition(
-      (pos) => {
-        // La posición se usa aquí y se descarta: al estado solo entra el
-        // resultado ya calculado, nunca las coordenadas.
-        const km = distanciaKm(pos.coords.latitude, pos.coords.longitude);
-        setResultado({ km, min: minutosAprox(km) });
-        setEstado("resuelto");
-      },
-      () => setEstado("sin-resultado"),
-      { enableHighAccuracy: false, timeout: 10000, maximumAge: 0 },
+      (pos) =>
+        cerrar(() => {
+          // La posición se usa aquí y se descarta: al estado solo entra el
+          // resultado ya calculado, nunca las coordenadas.
+          const km = distanciaKm(pos.coords.latitude, pos.coords.longitude);
+          setResultado({ km, min: minutosAprox(km) });
+          setEstado("resuelto");
+        }),
+      () => cerrar(() => setEstado("error")),
+      { enableHighAccuracy: false, timeout: 5000, maximumAge: 0 },
     );
+
+    setEstado("calculando");
   };
 
   if (estado === "resuelto") {
@@ -80,6 +101,18 @@ export default function DistanciaHastaCabelas() {
         <p className="mt-3 text-xs leading-relaxed text-white/60">
           Distancia en línea recta y tiempo estimado, calculados en tu
           navegador. Tu ubicación no se guarda ni se envía a ningún servidor.
+        </p>
+      </div>
+    );
+  }
+
+  if (estado === "error") {
+    return (
+      <div className="border-t border-white/10 pt-5">
+        <p role="status" className="text-sm leading-relaxed text-white/70">
+          No pudimos calcular tu ubicación automáticamente. Si estás en la app
+          de WhatsApp o Instagram, abre este enlace en Chrome o Safari para que
+          funcione.
         </p>
       </div>
     );

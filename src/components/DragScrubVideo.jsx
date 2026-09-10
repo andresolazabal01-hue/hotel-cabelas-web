@@ -1,7 +1,9 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 
-// Cada 5 px de arrastre avanzan 0.1 s de video.
-const SECONDS_PER_PIXEL = 0.02;
+// El recorrido es proporcional al ancho del bloque: arrastrar de un borde
+// al otro recorre el video entero. Un valor fijo en pixeles se sentia bien
+// en escritorio y roto en un telefono, donde el bloque mide la mitad y los
+// videos largos pedian varias pasadas para avanzar un poco.
 
 const TONES = {
   dark: {
@@ -27,7 +29,6 @@ export default function DragScrubVideo({
   ratio = "9/16",
   maxVh = 70,
   maxWidth,
-  secondsPerPixel = SECONDS_PER_PIXEL,
   className = "",
 }) {
   const [ratioW, ratioH] = ratio.split("/").map(Number);
@@ -96,7 +97,12 @@ export default function DragScrubVideo({
     const video = videoRef.current;
     if (!video) return;
     video.pause();
-    drag.current = { active: true, x: e.clientX, t: video.currentTime };
+    drag.current = {
+      active: true,
+      x: e.clientX,
+      t: video.currentTime,
+      ancho: e.currentTarget.clientWidth,
+    };
     // Puede lanzar si el puntero ya no esta activo; el arrastre funciona
     // igual sin captura, asi que no vale tumbar el componente por esto.
     try {
@@ -108,8 +114,10 @@ export default function DragScrubVideo({
   };
 
   const onPointerMove = (e) => {
-    if (!drag.current.active) return;
-    seek(drag.current.t + (e.clientX - drag.current.x) * secondsPerPixel);
+    const { active, x, t, ancho } = drag.current;
+    const video = videoRef.current;
+    if (!active || !ancho || !video?.duration) return;
+    seek(t + ((e.clientX - x) / ancho) * video.duration);
   };
 
   const onPointerUp = (e) => {
