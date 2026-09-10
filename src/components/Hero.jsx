@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
+// Dos tomas distintas, no la misma recortada: la vertical se grabó para
+// pantalla de teléfono y llena sola el encuadre. La condición es la forma de
+// la pantalla y no el ancho, porque un teléfono acostado es angosto pero
+// necesita la horizontal.
 const VERTICAL = "(max-aspect-ratio: 3/4)";
 
 export default function Hero() {
-  // El relleno borroso solo existe en vertical. Montarlo siempre significaria
-  // un segundo video decodificando en escritorio sin que llegue a verse.
   const [vertical, setVertical] = useState(
     () => window.matchMedia(VERTICAL).matches,
   );
@@ -19,27 +21,14 @@ export default function Hero() {
 
   return (
     <section className="relative h-svh overflow-hidden bg-ink">
-      {/* En vertical el cuadro se muestra completo con object-contain, lo que
-          deja franjas libres arriba y abajo: el video es 16:9 y la pantalla
-          no. Esas franjas las llena una copia del mismo video, ampliada y
-          desenfocada, para que el hueco no se lea como un vacio. La copia
-          va detras y no la ve un lector de pantalla. */}
-      {vertical ? (
-        <video
-          aria-hidden="true"
-          className="absolute inset-0 h-full w-full scale-110 object-cover opacity-50 blur-2xl"
-          src="/videos/hero.mp4"
-          autoPlay
-          muted
-          loop
-          playsInline
-        />
-      ) : null}
-
-      {/* En escritorio sigue cubriendo, que es como ya se veia bien. */}
+      {/* Se monta un solo <video>, no dos con hidden/block: un video oculto
+          con display:none se descarga igual, y serían megas de datos que el
+          visitante nunca ve. El key fuerza un elemento nuevo al cambiar de
+          toma, que es más fiable que reasignarle el src al mismo. */}
       <video
-        className="absolute inset-0 h-full w-full object-cover retrato:object-contain"
-        src="/videos/hero.mp4"
+        key={vertical ? "vertical" : "horizontal"}
+        className="absolute inset-0 h-full w-full object-cover"
+        src={vertical ? "/videos/hero-mobile.mp4" : "/videos/hero.mp4"}
         autoPlay
         muted
         loop

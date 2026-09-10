@@ -23,11 +23,6 @@
   --radius-control: 3px;
 }
 
-/* Pantalla bastante mas alta que ancha: telefono o tablet en vertical. Se
-   define por proporcion y no por ancho, porque lo que importa es la forma
-   de la pantalla — un telefono acostado es angosto pero no necesita esto. */
-@custom-variant retrato (@media (max-aspect-ratio: 3/4));
-
 /* Ventana baja: celular en horizontal, o vertical con el teclado abierto. */
 @custom-variant baja (@media (max-height: 560px));
 
