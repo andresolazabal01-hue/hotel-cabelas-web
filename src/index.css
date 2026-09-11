@@ -64,28 +64,6 @@ body {
   letter-spacing: 0.01em;
 }
 
-/* Cinta de texto en movimiento */
-@keyframes marquee {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-.animate-marquee {
-  animation: marquee 32s linear infinite;
-}
-
-/* El movimiento vive en la entrada del hero. Si el visitante pide menos
-   animación, también eso se detiene. */
-@media (prefers-reduced-motion: reduce) {
-  .animate-marquee {
-    animation: none;
-  }
-}
-
 /* ---------------------------------------------------------------------------
    Controles. Van en la capa de componentes para que cualquier utilidad de
    Tailwind puesta en el JSX (un text-base, un padding distinto) siga ganando:

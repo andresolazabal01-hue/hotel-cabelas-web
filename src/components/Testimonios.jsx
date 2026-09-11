@@ -40,9 +40,9 @@ export default function Testimonios() {
             </h2>
           </div>
           {/* La misma insignia del hero: aqui sirve de respaldo a las tres
-              reseñas, que son un recorte de esas 63. */}
+              reseñas, que son un recorte de esas 64. */}
           <span className="flex shrink-0 items-center gap-2 self-start rounded-control border border-white/30 px-4 py-2 text-sm text-white md:self-auto">
-            <span className="text-brand-soft">★</span> 4.9 · 63 reseñas en
+            <span className="text-brand-soft">★</span> 4.9 · 64 reseñas en
             Google
           </span>
         </div>

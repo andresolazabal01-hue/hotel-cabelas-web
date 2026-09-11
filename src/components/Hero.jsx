@@ -84,7 +84,7 @@ export default function Hero() {
           className="mt-10 flex flex-wrap items-center justify-center gap-4"
         >
           <span className="flex items-center gap-2 rounded-control border border-white/30 px-4 py-2 text-sm text-white">
-            <span className="text-brand-soft">★</span> 4.9 · 63 reseñas en
+            <span className="text-brand-soft">★</span> 4.9 · 64 reseñas en
             Google
           </span>
           <a

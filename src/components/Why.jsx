@@ -67,7 +67,7 @@ export default function Why() {
 
         <p className="mt-14 flex items-center gap-2 text-sm text-charcoal/50">
           <span className="text-brand">★</span>
-          Basado en las 63 reseñas del hotel en Google — 4.9 de 5 estrellas
+          Basado en las 64 reseñas del hotel en Google — 4.9 de 5 estrellas
         </p>
       </div>
     </section>

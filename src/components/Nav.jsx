@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { abrirReserva } from "../reserva.js";
 
 const LINKS = [
-  { href: "#hotel", label: "El hotel" },
+  { href: "#hotel", label: "Sobre nosotros" },
   { href: "#habitaciones", label: "Habitaciones" },
   { href: "#triangulo", label: "El Triángulo" },
   { href: "#preguntas", label: "Preguntas" },

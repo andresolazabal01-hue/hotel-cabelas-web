@@ -1,6 +1,6 @@
 const STATS = [
   { value: "4.9★", label: "Calificación en Google" },
-  { value: "63", label: "Reseñas verificadas" },
+  { value: "64", label: "Reseñas verificadas" },
   { value: "23 + 1", label: "Habitaciones y el apartamento El Triángulo" },
   { value: "24/7", label: "Recepción y atención" },
 ];
@@ -13,7 +13,14 @@ export default function Intro() {
           <div>
             <p className="section-label">El hotel</p>
 
-            <h2 className="display-soft max-w-xl font-display text-[1.8rem] leading-[1.15] font-normal text-charcoal md:text-[2.1rem] lg:text-[2.5rem]">
+            <h2 className="display-soft font-display text-[2rem] leading-[1.1] font-normal text-charcoal md:text-[2.5rem] lg:text-[3.1rem]">
+              Bienvenido a Cabelas.
+            </h2>
+
+            {/* La frase que ya estaba baja de h2 a p sin cambiar una letra ni
+                una clase: cada seccion del sitio lleva un solo h2, y ahora el
+                titular de la seccion es la bienvenida. */}
+            <p className="display-soft mt-6 max-w-xl font-display text-[1.8rem] leading-[1.15] font-normal text-charcoal md:text-[2.1rem] lg:text-[2.5rem]">
               23 habitaciones y un apartamento donde cada detalle está cuidado:{" "}
               <span className="text-brand-dark">limpieza impecable</span>,
               atención las 24 horas y la tranquilidad de estar{" "}
@@ -21,7 +28,7 @@ export default function Intro() {
                 a minutos del centro de Mazatenango
               </span>
               .
-            </h2>
+            </p>
 
             <p className="mt-8 max-w-lg text-base leading-relaxed text-charcoal/60">
               Con una calificación de 4.9 estrellas en Google, Cabelas se ha

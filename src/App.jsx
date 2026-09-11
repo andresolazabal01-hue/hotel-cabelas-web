@@ -4,7 +4,6 @@ import ReservaModal from "./components/ReservaModal.jsx";
 import Nav from "./components/Nav.jsx";
 import Hero from "./components/Hero.jsx";
 import Intro from "./components/Intro.jsx";
-import Marquee from "./components/Marquee.jsx";
 import Rooms from "./components/Rooms.jsx";
 import Triangulo from "./components/Triangulo.jsx";
 import Pool from "./components/Pool.jsx";
@@ -37,7 +36,6 @@ export default function App() {
       <main>
         <Hero />
         <Intro />
-        <Marquee />
         <Rooms />
         <Triangulo />
         <Pool />
