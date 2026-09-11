@@ -1,63 +1,25 @@
-/* Cuatro datos, cuatro iconos de trazo. El grosor es el mismo 1.6 que usan
-   el resto de iconos de linea del sitio (modal de reserva, control de video):
-   a distintos grosores la franja se ve armada con piezas de dos juegos. */
-function Trazo({ children }) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.6"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className="size-6 text-brand"
-      aria-hidden="true"
-    >
-      {children}
-    </svg>
-  );
-}
-
 const STATS = [
-  {
-    value: "4.9★",
-    label: "Calificación en Google",
-    icon: (
-      <path d="M12 3.4l2.7 5.5 6 .87-4.35 4.24 1.03 6L12 17.24 6.62 20.07l1.03-6L3.3 9.83l6-.87L12 3.4z" />
-    ),
-  },
-  {
-    value: "64",
-    label: "Reseñas verificadas",
-    icon: (
-      <>
-        <path d="M15.5 19.5v-1.6a3.5 3.5 0 00-3.5-3.5H7a3.5 3.5 0 00-3.5 3.5v1.6" />
-        <circle cx="9.5" cy="7.5" r="3.1" />
-        <path d="M16.4 4.8a3.1 3.1 0 010 5.5M20.5 19.5v-1.6a3.5 3.5 0 00-2.6-3.38" />
-      </>
-    ),
-  },
-  {
-    value: "23 + 1",
-    label: "Habitaciones y el apartamento El Triángulo",
-    icon: (
-      <>
-        <path d="M6 20V5.2a1.2 1.2 0 011.2-1.2h9.6a1.2 1.2 0 011.2 1.2V20" />
-        <path d="M4 20h16" />
-        <path d="M14.9 12.3h.01" />
-      </>
-    ),
-  },
-  {
-    value: "24/7",
-    label: "Recepción y atención",
-    icon: (
-      <>
-        <circle cx="12" cy="12" r="8.4" />
-        <path d="M12 7.3V12l3.1 1.85" />
-      </>
-    ),
-  },
+  { value: "4.9★", label: "Calificación en Google" },
+  { value: "64", label: "Reseñas verificadas" },
+  { value: "23 + 1", label: "Habitaciones y el apartamento El Triángulo" },
+  { value: "24/7", label: "Recepción y atención" },
+];
+
+/* El divisor es el borde izquierdo del dato que sigue, no un elemento
+   aparte: así la línea mide exactamente el alto de la fila sin que haya
+   que calcularla. En celular la rejilla es 2×2 y se cruzan una vertical
+   y una horizontal; desde md se apagan las horizontales y quedan las tres
+   verticales de la franja. Los extremos van sin relleno lateral, para que
+   el 4.9 y el 24/7 caigan sobre el mismo margen que el titular.
+
+   El relleno vertical vive en la celda y no en el contenedor: si lo lleva
+   el contenedor, el filete vertical arranca por dentro y queda flotando a
+   80 px de las reglas de arriba y abajo. */
+const CELDA = [
+  "pt-11 pr-6 pb-9 lg:pt-12 lg:pr-8 lg:pb-12",
+  "border-l border-charcoal/10 pt-11 pb-9 pl-6 lg:pt-12 lg:pr-8 lg:pb-12 lg:pl-8",
+  "border-t border-charcoal/10 pt-9 pr-6 pb-11 lg:border-t-0 lg:border-l lg:pt-12 lg:pr-8 lg:pb-12 lg:pl-8",
+  "border-t border-l border-charcoal/10 pt-9 pb-11 pl-6 lg:border-t-0 lg:pt-12 lg:pb-12 lg:pl-8",
 ];
 
 export default function Intro() {
@@ -86,18 +48,19 @@ export default function Intro() {
           .
         </p>
 
-        {/* ── Bloque 2 · Los cuatro datos ─────────────────────────────────
-            En celular van 2×2: a cuatro columnas cada dato queda en 70 px y
-            la etiqueta del apartamento se parte en seis líneas. Desde md sí
-            entran en franja. */}
-        <dl className="mt-16 grid grid-cols-2 gap-x-6 gap-y-11 border-y border-charcoal/10 py-11 sm:gap-x-10 md:mt-20 md:grid-cols-4 md:py-12">
-          {STATS.map((s) => (
-            <div key={s.label}>
-              <Trazo>{s.icon}</Trazo>
-              <dt className="mt-4 font-display text-3xl leading-none font-medium text-charcoal md:text-4xl">
+        {/* ── Bloque 2 · Los cuatro datos ────────────────────
+            Sin íconos: el número en la serif de marca es el que manda, y lo
+            único que lo separa del siguiente es un filete. En celular van
+            2×2, y la franja de cuatro no entra hasta lg: a 800 px de ancho
+            la columna deja 112 px útiles y el "23 + 1" se parte en dos
+            renglones. */}
+        <dl className="mt-16 grid grid-cols-2 border-y border-charcoal/10 md:mt-20 lg:grid-cols-4">
+          {STATS.map((s, i) => (
+            <div key={s.label} className={CELDA[i]}>
+              <dt className="display-soft font-display text-[2.25rem] leading-none font-normal text-charcoal lg:text-[2.5rem] xl:text-[3rem]">
                 {s.value}
               </dt>
-              <dd className="mt-2.5 max-w-[22ch] text-xs leading-snug text-charcoal/50">
+              <dd className="mt-3 max-w-[22ch] text-xs leading-snug text-charcoal/50">
                 {s.label}
               </dd>
             </div>
