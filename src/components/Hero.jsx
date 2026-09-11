@@ -11,12 +11,23 @@ export default function Hero() {
   const [vertical, setVertical] = useState(
     () => window.matchMedia(VERTICAL).matches,
   );
+  const [bajando, setBajando] = useState(false);
 
   useEffect(() => {
     const consulta = window.matchMedia(VERTICAL);
     const alCambiar = (e) => setVertical(e.matches);
     consulta.addEventListener("change", alCambiar);
     return () => consulta.removeEventListener("change", alCambiar);
+  }, []);
+
+  // El indicador de scroll era la unica animacion perpetua del sitio: una
+  // rayita rebotando para siempre. Ahora responde — desaparece en cuanto
+  // el visitante empieza a bajar, que es justo cuando deja de hacer falta.
+  useEffect(() => {
+    const alDesplazar = () => setBajando(window.scrollY > 24);
+    alDesplazar();
+    window.addEventListener("scroll", alDesplazar, { passive: true });
+    return () => window.removeEventListener("scroll", alDesplazar);
   }, []);
 
   return (
@@ -100,11 +111,12 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* Indicador de scroll */}
-      <div className="absolute bottom-5 left-1/2 -translate-x-1/2">
+      {/* Indicador de scroll: entra con el resto del hero y se va al bajar */}
+      <div className="pointer-events-none absolute bottom-5 left-1/2 -translate-x-1/2">
         <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: bajando ? 0 : 1 }}
+          transition={{ duration: 0.6, delay: bajando ? 0 : 1 }}
           className="h-8 w-px bg-white/40"
         />
       </div>

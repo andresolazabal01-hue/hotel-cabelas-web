@@ -58,13 +58,22 @@ export default function Triangulo() {
           {/* Las cifras bajan junto a la tarjeta para equilibrar la columna,
               que queda fija mientras se recorre el video. */}
           <div className="lg:sticky lg:top-28 lg:col-span-5">
-            <dl className="grid grid-cols-3 gap-6 border-t border-charcoal/10 pt-8">
+            {/* Tres renglones, no tres columnas. Antes esto era la misma
+                caja que la franja de "Sobre nosotros" — mismas clases en el
+                dt y en el dd — y se leía como el componente reciclado.
+                Aquí el dato y su etiqueta comparten renglón, que además es
+                lo que pide una columna de 400 px: a tres columnas, "Por
+                noche, todos los días" cabe en 120 px. */}
+            <dl className="border-t border-charcoal/10">
               {FACTS.map((f) => (
-                <div key={f.label}>
-                  <dt className="font-display text-3xl font-medium text-charcoal">
+                <div
+                  key={f.label}
+                  className="flex items-baseline gap-4 border-b border-charcoal/10 py-4"
+                >
+                  <dt className="display-soft min-w-[4.75rem] font-display text-[1.7rem] leading-none font-normal text-charcoal">
                     {f.value}
                   </dt>
-                  <dd className="mt-2 text-xs leading-snug text-charcoal/50">
+                  <dd className="text-sm leading-snug text-charcoal/55">
                     {f.label}
                   </dd>
                 </div>

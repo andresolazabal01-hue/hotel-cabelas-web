@@ -26,6 +26,31 @@
 /* Ventana baja: celular en horizontal, o vertical con el teclado abierto. */
 @custom-variant baja (@media (max-height: 560px));
 
+/* El anillo de foco cambia de tono segun la superficie sobre la que cae.
+   El periwinkle rinde 6.1:1 sobre azul oscuro pero solo 2.29:1 sobre crema
+   y 1.97:1 sobre arena: por debajo del 3:1 que pide la WCAG para un
+   indicador que no es texto. El azul de marca hace el recorrido inverso.
+   El outline se dibuja fuera del control, asi que lo que importa no es el
+   fondo del boton sino el de la seccion que lo contiene — por eso la
+   variable cuelga de las clases de fondo y se hereda hacia adentro. La
+   regla oscura va al final para que una tarjeta oscura dentro de una
+   seccion clara recupere el periwinkle. */
+:root {
+  --foco-marca: var(--color-brand-soft);
+}
+
+.bg-cream,
+.bg-sand {
+  --foco-marca: var(--color-brand);
+}
+
+.bg-charcoal,
+.bg-deep,
+.bg-ink,
+.bg-brand {
+  --foco-marca: var(--color-brand-soft);
+}
+
 html {
   background: var(--color-cream);
 }
@@ -107,8 +132,18 @@ body {
   .btn-solido:focus-visible,
   .btn-filete:focus-visible,
   .foco-marca:focus-visible {
-    outline: 2px solid var(--color-brand-soft);
+    outline: 2px solid var(--foco-marca);
     outline-offset: 3px;
+  }
+
+  /* La barra flota sobre el video del hero, donde no hay fondo conocido:
+     medido sobre el fotograma real y con los dos velos encima, la franja
+     que queda detras del anillo se mueve entre 1.09:1 y 1.29:1 contra el
+     periwinkle. Es decir, invisible. El halo le da al anillo una superficie
+     propia de tinta, contra la que rinde 7.38:1, y asoma 2 px por fuera
+     para separarlo de lo que venga detras. */
+  .foco-sobre-video:focus-visible {
+    box-shadow: 0 0 0 7px var(--color-ink);
   }
 
   /* Campos: un filete de 1 px sobre el propio fondo, nada de relieve. El foco

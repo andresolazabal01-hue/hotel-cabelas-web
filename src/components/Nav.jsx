@@ -87,7 +87,7 @@ export default function Nav() {
               setOpen(false);
               window.__lenis?.scrollTo(0);
             }}
-            className="foco-marca flex items-center rounded-control"
+            className="foco-marca foco-sobre-video flex items-center rounded-control"
           >
             <img
               src="/images/logo-cabelas.webp"
@@ -102,7 +102,7 @@ export default function Nav() {
                 <a
                   href={l.href}
                   onClick={(e) => goTo(e, l.href)}
-                  className="foco-marca rounded-control text-sm whitespace-nowrap text-white/70 transition-colors duration-200 hover:text-white"
+                  className="foco-marca foco-sobre-video rounded-control text-sm whitespace-nowrap text-white/70 transition-colors duration-200 hover:text-white"
                 >
                   {l.label}
                 </a>
@@ -114,7 +114,7 @@ export default function Nav() {
             <button
               type="button"
               onClick={() => abrirReserva()}
-              className="btn-solido px-5 py-2"
+              className="btn-solido foco-sobre-video px-5 py-2"
             >
               Reservar
             </button>
@@ -126,7 +126,7 @@ export default function Nav() {
               aria-label={open ? "Cerrar menú" : "Abrir menú"}
               aria-expanded={open}
               aria-controls="menu-movil"
-              className="foco-marca -mr-2 grid size-11 place-items-center rounded-control text-white lg:hidden"
+              className="foco-marca foco-sobre-video -mr-2 grid size-11 place-items-center rounded-control text-white lg:hidden"
             >
               <span className="relative block h-[15px] w-6" aria-hidden="true">
                 <span

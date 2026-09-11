@@ -3,28 +3,42 @@ const POINTS = [
     title: "Limpieza impecable",
     text: "Habitaciones y baños en estado impecable, cuidados a diario. Es lo primero que mencionan las reseñas.",
     icon: (
-      <path d="M12 3l1.9 5.4L19 10l-5.1 1.6L12 17l-1.9-5.4L5 10l5.1-1.6L12 3zM19 15l.9 2.6L22 18l-2.1.7L19 21l-.9-2.3L16 18l2.1-.4L19 15z" />
+      <>
+        <path d="M12 3.4l1.85 5.05 5.05 1.85-5.05 1.85L12 17.2l-1.85-5.05L5.1 10.3l5.05-1.85L12 3.4z" />
+        <path d="M18.8 15.6l.72 1.98 1.98.72-1.98.72-.72 1.98-.72-1.98-1.98-.72 1.98-.72.72-1.98z" />
+      </>
     ),
   },
   {
     title: "Seguridad en el ingreso",
     text: "Acceso controlado y un ambiente privado, para que descanses con total tranquilidad.",
     icon: (
-      <path d="M12 2l8 3.5v5.1c0 5-3.4 9.6-8 11.4-4.6-1.8-8-6.4-8-11.4V5.5L12 2zm-1.2 13.6l6-6-1.4-1.4-4.6 4.6-2.2-2.2-1.4 1.4 3.6 3.6z" />
+      <>
+        <path d="M12 2.9l7.3 3.15v4.85c0 4.55-3.05 8.8-7.3 10.2-4.25-1.4-7.3-5.65-7.3-10.2V6.05L12 2.9z" />
+        <path d="M8.9 11.8l2.2 2.2 4.1-4.1" />
+      </>
     ),
   },
   {
     title: "Atención 24/7",
     text: "Recepción atenta a cualquier hora, los 7 días de la semana. Llega cuando lo necesites.",
     icon: (
-      <path d="M12 2a10 10 0 110 20 10 10 0 010-20zm1 5h-2v6l4.8 2.9 1-1.7-3.8-2.3V7z" />
+      <>
+        <circle cx="12" cy="12" r="8.6" />
+        <path d="M12 7.2V12l3.2 1.9" />
+      </>
     ),
   },
   {
     title: "Comodidad completa",
     text: "Aire acondicionado, TV, wifi y camas cómodas en todas las habitaciones, bien equipadas.",
     icon: (
-      <path d="M4 7h16a2 2 0 012 2v3h-2v6h-2v-2H6v2H4v-6H2V9a2 2 0 012-2zm0 2v3h16V9H4zm2-5h12v2H6V4z" />
+      <>
+        <path d="M3.2 19.2V6.4" />
+        <path d="M3.2 12.1h12.3a5.3 5.3 0 015.3 5.3v1.8" />
+        <path d="M3.2 16.2h17.6" />
+        <circle cx="7.7" cy="9.2" r="1.9" />
+      </>
     ),
   },
 ];
@@ -47,10 +61,17 @@ export default function Why() {
               key={p.title}
               className="border-b border-charcoal/10 py-9 sm:pr-10 lg:border-b-0 lg:pb-0"
             >
+              {/* Trazo de 1.6, el mismo que la hoja de reserva y el control
+                  de video. Antes eran siluetas macizas: dos juegos de iconos
+                  distintos conviviendo en el mismo sitio. */}
               <svg
                 viewBox="0 0 24 24"
-                fill="currentColor"
-                className="size-5 text-brand"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.6"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="size-[22px] text-brand"
                 aria-hidden="true"
               >
                 {p.icon}

@@ -164,7 +164,7 @@ export default function DragScrubVideo({
         onPointerUp={onPointerUp}
         onPointerCancel={onPointerUp}
         onKeyDown={onKeyDown}
-        className={`relative cursor-ew-resize touch-pan-y overflow-hidden rounded-panel bg-ink select-none focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-brand-soft ${title ? "mt-5" : ""}`}
+        className={`foco-marca relative cursor-ew-resize touch-pan-y overflow-hidden rounded-panel select-none ${title ? "mt-5" : ""}`}
       >
         <video
           ref={videoRef}
@@ -174,7 +174,7 @@ export default function DragScrubVideo({
           playsInline
           preload="metadata"
           style={{ aspectRatio: `${ratioW} / ${ratioH}` }}
-          className="pointer-events-none block w-full object-cover"
+          className="pointer-events-none block w-full bg-ink object-cover"
         />
 
         {/* Pista de uso: se desvanece con el primer arrastre */}
