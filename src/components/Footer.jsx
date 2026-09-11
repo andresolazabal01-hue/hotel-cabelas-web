@@ -15,7 +15,7 @@ export default function Footer() {
           <div>
             <img
               src="/images/logo-cabelas.webp"
-              alt="Cabelas — El descanso que mereces"
+              alt="Cabelas. El descanso que mereces"
               className="h-16 w-auto md:h-20"
             />
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-white/45">
@@ -96,7 +96,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-16 flex flex-col items-center justify-between gap-3 border-t border-white/10 pt-6 text-xs text-white/35 md:flex-row">
-          <p>© 2026 Hotel Cabelas — Mazatenango, Suchitepéquez, Guatemala</p>
+          <p>© 2026 Hotel Cabelas. Mazatenango, Suchitepéquez, Guatemala</p>
           <p>Propuesta de diseño · Demo sin compromiso</p>
         </div>
       </div>

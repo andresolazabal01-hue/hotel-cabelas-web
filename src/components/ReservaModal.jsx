@@ -37,12 +37,14 @@ function armarMensaje({ llegada, salida, tipo, adultos, ninos, detalle }) {
   return lineas.join("\n");
 }
 
-// El valor que viaja al mensaje lleva guion largo ("Tipo 1 — 2 camas
-// matrimoniales"). En pantalla se parte en dos: el nombre pesa y la
-// descripción acompaña debajo, sin el guion de por medio.
+// El valor que viaja al mensaje lleva la descripción entre paréntesis
+// ("Tipo 1 (2 camas matrimoniales)"). En pantalla se parte en dos: el
+// nombre pesa y la descripción acompaña debajo, sin el paréntesis.
 function partir(valor) {
-  const [nombre, ...resto] = valor.split(" — ");
-  return { nombre, descripcion: resto.join(" — ") };
+  const m = valor.match(/^(.+?) \((.+)\)$/);
+  return m
+    ? { nombre: m[1], descripcion: m[2] }
+    : { nombre: valor, descripcion: "" };
 }
 
 const ETIQUETA = "text-sm text-cream/70";

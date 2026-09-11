@@ -18,11 +18,11 @@ export default function Booking() {
         </h2>
 
         <p className="mx-auto mt-8 max-w-lg text-base leading-relaxed text-white/62">
-          El precio de viajero —{" "}
+          El precio de viajero,{" "}
           <span className="text-white/80">
             Q290 a Q350 la noche de lunes a viernes
-          </span>{" "}
-          — solo existe reservando con nosotros. Ninguna plataforma lo tiene,
+          </span>
+          , solo existe reservando con nosotros. Ninguna plataforma lo tiene,
           porque ninguna plataforma se queda con una comisión de por medio.
         </p>
         <p className="mx-auto mt-4 max-w-md text-base leading-relaxed text-white/62">

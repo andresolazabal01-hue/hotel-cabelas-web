@@ -5,7 +5,7 @@ const POINTS = [
   },
   {
     title: "Se mantiene limpia",
-    text: "Recibe mantenimiento constante y el agua se trata con regularidad. Está a la vista, así que puede verse antes de entrar.",
+    text: "Recibe mantenimiento constante y el agua se trata con regularidad. Al entrar al restaurante puede verse antes de usarla.",
   },
   {
     title: "Contiguo al hotel",
@@ -59,8 +59,9 @@ export default function Pool() {
         </div>
 
         <p className="mt-14 max-w-xl text-sm leading-relaxed text-cream/40">
-          La piscina pertenece al Restaurante El Pirata. Los horarios de uso
-          dependen del restaurante — en recepción te confirmamos el del día.
+          La piscina pertenece al Restaurante El Pirata: se accede desde dentro
+          y no es visible desde el ingreso del hotel. Los horarios de uso
+          dependen del restaurante, y en recepción te confirmamos el del día.
         </p>
       </div>
     </section>

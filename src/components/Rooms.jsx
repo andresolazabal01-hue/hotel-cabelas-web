@@ -147,8 +147,8 @@ export default function Rooms() {
                       <span className="text-brand-soft">
                         La habitación del viajero.
                       </span>{" "}
-                      Pensada para quien llega por trabajo, no por vacaciones —
-                      lo esencial, sin nada superfluo.
+                      Pensada para quien llega por trabajo, no por vacaciones.
+                      Lo esencial, sin nada superfluo.
                     </p>
                   </div>
                   <div className="mt-3 h-[3px] w-full bg-white/10" />

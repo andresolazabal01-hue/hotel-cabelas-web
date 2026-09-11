@@ -42,8 +42,8 @@ export default function Triangulo() {
             </p>
             <p className="mt-5 max-w-xl text-base leading-relaxed text-charcoal/60">
               El precio es el mismo todos los días del año. El Triángulo no
-              entra en el precio de viajero ni en ningún otro descuento — sabes
-              desde el inicio exactamente cuánto vas a pagar.
+              entra en el precio de viajero ni en ningún otro descuento, así que
+              sabes desde el inicio exactamente cuánto vas a pagar.
             </p>
 
             <DragScrubVideo

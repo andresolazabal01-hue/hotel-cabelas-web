@@ -4,10 +4,10 @@
 export const EVENTO_RESERVA = "cabelas:abrir-reserva";
 
 export const TIPOS = [
-  "Tipo 1 — 2 camas matrimoniales",
-  "Tipo 2 — 1 cama matrimonial",
-  "Tipo 3 — Cama extra size",
-  "El Triángulo — Apartamento",
+  "Tipo 1 (2 camas matrimoniales)",
+  "Tipo 2 (1 cama matrimonial)",
+  "Tipo 3 (Cama extra size)",
+  "El Triángulo (Apartamento)",
 ];
 
 // tipo es opcional: si viene, el modal abre con ese tipo ya elegido.
