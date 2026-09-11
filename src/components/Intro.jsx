@@ -57,10 +57,10 @@ export default function Intro() {
           </div>
 
           <div className="relative">
-            {/* El contenedor toma la proporción real del archivo (2000x1124),
+            {/* El contenedor toma la proporción real del archivo (1280x960),
                 así la fachada entra completa y no queda borde recortado.
                 El fondo crema cubre cualquier sobrante de redondeo. */}
-            <div className="relative aspect-[500/281] overflow-hidden rounded-panel bg-cream">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-panel bg-cream">
               <img
                 src="/images/foto-fachada.jpg"
                 alt="Fachada de Hotel Cabelas"
