@@ -6,7 +6,7 @@ const TYPES = [
     tag: "Tipo 1",
     range: "Habitaciones 1 a 8",
     bed: "2 camas matrimoniales",
-    normal: "Q450",
+    estandar: "Q450",
     traveler: "Q350",
     src: "/videos/habitacion-2-matrimoniales.mp4",
     poster: "/images/poster-habitacion-2-matrimoniales.jpg",
@@ -17,14 +17,14 @@ const TYPES = [
     tag: "Tipo 2",
     range: "Habitaciones 9 a 17",
     bed: "1 cama matrimonial",
-    normal: "Q390",
+    estandar: "Q390",
     traveler: "Q290",
   },
   {
     tag: "Tipo 3",
     range: "Habitaciones 18 a 23",
     bed: "Cama extra size",
-    normal: "Q450",
+    estandar: "Q450",
     traveler: "Q350",
     src: "/videos/habitacion-extra-size.mp4",
     poster: "/images/poster-habitacion-extra-size.jpg",
@@ -77,14 +77,14 @@ export default function Rooms() {
         <div className="border-t border-white/10 pt-14">
           <p className="section-label-invert">Cómo funcionan los precios</p>
           <h3 className="display-soft max-w-2xl font-display text-[1.7rem] leading-[1.16] font-normal text-cream md:text-[2rem] lg:text-[2.4rem]">
-            Hay dos precios por noche: el normal y el{" "}
+            Hay dos precios por noche: el estándar y el{" "}
             <span className="text-brand-soft">precio de viajero</span>.
           </h3>
 
           <div className="mt-10 grid gap-10 md:grid-cols-2 md:gap-16">
             <div>
               <p className="font-display text-lg font-medium text-cream">
-                Precio normal
+                Precio estándar
               </p>
               <p className="mt-3 max-w-md text-sm leading-relaxed text-cream/60">
                 Se aplica los fines de semana. También de lunes a viernes cuando
@@ -108,7 +108,7 @@ export default function Rooms() {
                 <strong className="font-medium text-cream/90">
                   una sola persona
                 </strong>
-                . Si van dos o más, aplica el precio normal aunque sea entre
+                . Si van dos o más, aplica el precio estándar aunque sea entre
                 semana.
               </p>
             </div>
@@ -148,7 +148,7 @@ export default function Rooms() {
                         La habitación del viajero.
                       </span>{" "}
                       Pensada para quien llega por trabajo, no por vacaciones —
-                      lo esencial, sin nada de más.
+                      lo esencial, sin nada superfluo.
                     </p>
                   </div>
                   <div className="mt-3 h-[3px] w-full bg-white/10" />
@@ -158,10 +158,10 @@ export default function Rooms() {
               <dl className="mt-auto space-y-4 pt-8">
                 <div className="flex items-baseline justify-between gap-4">
                   <dt className="text-sm whitespace-nowrap text-cream/55">
-                    Precio normal
+                    Precio estándar
                   </dt>
                   <dd className="font-display text-2xl font-medium text-cream">
-                    {t.normal}
+                    {t.estandar}
                   </dd>
                 </div>
                 <div className="flex items-baseline justify-between gap-4">

@@ -9,7 +9,7 @@ const FAQS = [
   },
   {
     q: "¿Tengo que dar un anticipo para apartar?",
-    a: "No. No pedimos anticipo ni depósito para dejar tu reserva apartada. Escríbenos, confirmamos disponibilidad y listo.",
+    a: "No. No pedimos anticipo ni depósito para dejar tu reserva apartada. Basta con escribirnos y confirmar la disponibilidad.",
   },
   {
     q: "¿Dan factura?",

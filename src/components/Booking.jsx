@@ -27,7 +27,7 @@ export default function Booking() {
         </p>
         <p className="mx-auto mt-4 max-w-md text-base leading-relaxed text-white/62">
           Escríbenos por WhatsApp y confirma tu habitación en minutos, a
-          cualquier hora del día. Sin anticipo para apartar.
+          cualquier hora del día. Sin anticipo para apartarla.
         </p>
 
         <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">

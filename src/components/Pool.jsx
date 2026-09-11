@@ -5,7 +5,7 @@ const POINTS = [
   },
   {
     title: "Se mantiene limpia",
-    text: "Recibe mantenimiento constante y el agua se trata con regularidad. Si quieres verla antes de entrar, se puede — está a la vista.",
+    text: "Recibe mantenimiento constante y el agua se trata con regularidad. Está a la vista, así que puede verse antes de entrar.",
   },
   {
     title: "Contiguo al hotel",
