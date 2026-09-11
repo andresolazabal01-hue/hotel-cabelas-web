@@ -68,7 +68,7 @@ export default function Intro() {
             El titular crece con el ancho de la pantalla en vez de saltar por
             breakpoints: en un teléfono de 360 px el clamp se apoya en su
             mínimo y la palabra más larga, "Bienvenido", entra sin partirse. */}
-        <p className="section-label">El hotel</p>
+        <p className="section-label">Sobre nosotros</p>
 
         <h2 className="display-soft font-display text-[clamp(2.5rem,8.5vw,4.25rem)] leading-[1.04] font-normal text-charcoal">
           Bienvenido a Cabelas.
