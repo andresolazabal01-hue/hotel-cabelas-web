@@ -38,7 +38,8 @@ export default function DragScrubVideo({
   const altoTope = `calc(${maxVh}svh * ${ratioW} / ${ratioH})`;
   const cap = maxWidth ? `min(${maxWidth}, ${altoTope})` : altoTope;
   const videoRef = useRef(null);
-  const drag = useRef({ active: false, x: 0, t: 0 });
+  const drag = useRef({ active: false, eje: null, x: 0, y: 0, t: 0 });
+  const cargado = useRef(false);
   const raf = useRef(0);
   const pending = useRef(null);
 
@@ -54,16 +55,27 @@ export default function DragScrubVideo({
     // Arranca detenido en el primer cuadro: nunca se reproduce solo.
     video.pause();
 
-    // El archivo completo se trae solo cuando el bloque se acerca a la
-    // pantalla; asi el arrastre responde sin descargar todo de entrada.
+    // El archivo pesado solo se sostiene mientras el bloque esta a la
+    // vista, y se suelta al salir. Antes el observador se desconectaba
+    // tras la primera entrada: los tres videos se quedaban en
+    // preload="auto" para siempre, con sus tres decodificadores vivos
+    // mientras se recorria la pagina.
     const io = new IntersectionObserver(
       ([entry]) => {
-        if (!entry.isIntersecting) return;
-        video.preload = "auto";
-        video.load();
-        io.disconnect();
+        if (entry.isIntersecting) {
+          video.preload = "auto";
+          // load() devuelve el video al segundo cero, asi que solo se
+          // llama la primera vez; despues basta con subir el preload.
+          if (!cargado.current) {
+            cargado.current = true;
+            video.load();
+          }
+        } else {
+          video.pause();
+          video.preload = "metadata";
+        }
       },
-      { rootMargin: "400px" },
+      { rootMargin: "200px" },
     );
     io.observe(video);
 
@@ -97,31 +109,61 @@ export default function DragScrubVideo({
     const video = videoRef.current;
     if (!video) return;
     video.pause();
+    // eje: null significa que el gesto todavia no se ha declarado. Ni se
+    // captura el puntero ni se marca como tocado hasta saber que va en
+    // horizontal: en un telefono se hace scroll pasando el dedo por
+    // encima de cualquier cosa, y todo toque sobre el bloque contaba
+    // como arrastre.
     drag.current = {
       active: true,
+      eje: null,
       x: e.clientX,
+      y: e.clientY,
       t: video.currentTime,
       ancho: e.currentTarget.clientWidth,
     };
-    // Puede lanzar si el puntero ya no esta activo; el arrastre funciona
-    // igual sin captura, asi que no vale tumbar el componente por esto.
-    try {
-      e.currentTarget.setPointerCapture(e.pointerId);
-    } catch {
-      /* sin captura */
-    }
-    setTouched(true);
   };
 
   const onPointerMove = (e) => {
-    const { active, x, t, ancho } = drag.current;
+    const d = drag.current;
     const video = videoRef.current;
-    if (!active || !ancho || !video?.duration) return;
-    seek(t + ((e.clientX - x) / ancho) * video.duration);
+    if (!d.active || !d.ancho || !video?.duration) return;
+
+    if (d.eje === null) {
+      const dx = e.clientX - d.x;
+      const dy = e.clientY - d.y;
+      if (Math.abs(dx) < 8 && Math.abs(dy) < 8) return;
+      // Vertical: es scroll de pagina. Se suelta el gesto y no se toca el
+      // video, que es lo que provocaba un seek por cuadro mientras la
+      // pagina se movia.
+      if (Math.abs(dy) > Math.abs(dx)) {
+        d.active = false;
+        return;
+      }
+      d.eje = "x";
+      // Se reancla aqui para que el video no salte los 8 px que costo
+      // decidir hacia donde iba el dedo.
+      d.x = e.clientX;
+      setTouched(true);
+      // Puede lanzar si el puntero ya no esta activo; el arrastre
+      // funciona igual sin captura, asi que no vale tumbar el
+      // componente por esto.
+      try {
+        e.currentTarget.setPointerCapture(e.pointerId);
+      } catch {
+        /* sin captura */
+      }
+      return;
+    }
+
+    // El signo va invertido a proposito: arrastrar hacia la derecha gira
+    // la escena hacia la izquierda, como empujar un objeto con el dedo.
+    seek(d.t - ((e.clientX - d.x) / d.ancho) * video.duration);
   };
 
   const onPointerUp = (e) => {
     drag.current.active = false;
+    drag.current.eje = null;
     try {
       if (e.currentTarget.hasPointerCapture(e.pointerId)) {
         e.currentTarget.releasePointerCapture(e.pointerId);

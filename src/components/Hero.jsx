@@ -36,10 +36,21 @@ export default function Hero() {
           con display:none se descarga igual, y serían megas de datos que el
           visitante nunca ve. El key fuerza un elemento nuevo al cambiar de
           toma, que es más fiable que reasignarle el src al mismo. */}
+      {/* El poster es el cuadro cero del propio video, asi que no hay salto
+          al relevarse: el navegador lo pinta de inmediato y lo cambia por el
+          video en cuanto hay primer cuadro decodificado, sin JS de por medio.
+          preload="auto" solo aqui; los videos de habitaciones se quedan en
+          metadata para no pelearse por el ancho de banda con este. */}
       <video
         key={vertical ? "vertical" : "horizontal"}
         className="absolute inset-0 h-full w-full object-cover"
         src={vertical ? "/videos/hero-mobile.mp4" : "/videos/hero.mp4"}
+        poster={
+          vertical
+            ? "/images/poster-hero-mobile.jpg"
+            : "/images/poster-hero.jpg"
+        }
+        preload="auto"
         autoPlay
         muted
         loop
