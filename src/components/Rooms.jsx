@@ -177,8 +177,8 @@ export default function Rooms() {
                   oscuro de la paleta, hundido sobre el fondo de la seccion.
                   El azul saturado de la marca ya lo gasta la banda de la
                   habitacion 5, y tres paneles asi de fuertes le quitarian el
-                  lugar. La viñeta es un filete de periwinkle, no un disco:
-                  es el mismo vocabulario de lineas del resto del sitio.
+                  lugar. Sin vineta: cada caracteristica ocupa su propio
+                  renglon, y el aire entre ellas ya las separa.
                   Comparte el ancho maximo del video para que las dos cajas
                   queden a plomo en pantallas angostas. */}
               <ul
@@ -186,15 +186,8 @@ export default function Rooms() {
                 style={{ maxWidth: "calc(70svh * 4 / 5)" }}
               >
                 {t.ficha.map((f) => (
-                  <li
-                    key={f}
-                    className="flex gap-3 text-sm leading-snug text-cream/75"
-                  >
-                    <span
-                      aria-hidden="true"
-                      className="mt-[0.6em] h-px w-3 shrink-0 bg-brand-soft"
-                    />
-                    <span>{f}</span>
+                  <li key={f} className="text-sm leading-snug text-cream/75">
+                    {f}
                   </li>
                 ))}
               </ul>
