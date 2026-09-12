@@ -108,7 +108,7 @@ export default function Intro() {
             </p>
             <p className="mt-5 max-w-lg text-base leading-relaxed text-charcoal/60">
               La reserva se hace directo por WhatsApp, con nosotros. Sin
-              intermediarios y sin comisiones de terceros.
+              intermediarios y sin comisiones a terceros.
             </p>
           </div>
         </div>

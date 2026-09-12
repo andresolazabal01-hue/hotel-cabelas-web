@@ -14,7 +14,7 @@ export default function Booking() {
         <h2 className="display-soft font-display text-[2.6rem] leading-[1.06] font-normal text-white md:text-[3rem] lg:text-[3.8rem]">
           Reserva <span className="text-brand-soft">directo</span>.
           <br />
-          Sin comisiones de terceros.
+          Sin comisiones a terceros.
         </h2>
 
         <p className="mx-auto mt-8 max-w-lg text-base leading-relaxed text-white/62">

@@ -59,7 +59,7 @@ export default function Pool() {
         </div>
 
         <p className="mt-14 max-w-xl text-sm leading-relaxed text-cream/40">
-          La piscina pertenece al Restaurante El Pirata: se accede desde dentro
+          La piscina pertenece al Restaurante El Pirata: se accede desde adentro
           y no es visible desde el ingreso del hotel. Los horarios de uso
           dependen del restaurante, y en recepción te confirmamos el del día.
         </p>

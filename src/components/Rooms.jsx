@@ -10,6 +10,13 @@ const TYPES = [
     traveler: "Q350",
     src: "/videos/habitacion-2-matrimoniales.mp4",
     poster: "/images/poster-habitacion-2-matrimoniales.jpg",
+    ficha: [
+      "Base para 2 personas, Q150 por persona adicional",
+      "2 camas matrimoniales",
+      "La habitación 5 es la excepción: lleva una cama King size",
+      "Baño privado y agua caliente",
+      "Aire acondicionado, TV y wifi",
+    ],
   },
   {
     // Sin grabación todavía: la tarjeta lleva su propio tratamiento.
@@ -19,15 +26,27 @@ const TYPES = [
     bed: "1 cama matrimonial",
     estandar: "Q390",
     traveler: "Q290",
+    ficha: [
+      "Base para 2 personas, Q150 por persona adicional",
+      "1 cama matrimonial",
+      "Baño privado y agua caliente",
+      "Aire acondicionado, TV y wifi",
+    ],
   },
   {
     tag: "Tipo 3",
     range: "Habitaciones 18 a 23",
-    bed: "Cama extra size",
+    bed: "Cama Queen size",
     estandar: "Q450",
     traveler: "Q350",
     src: "/videos/habitacion-extra-size.mp4",
     poster: "/images/poster-habitacion-extra-size.jpg",
+    ficha: [
+      "Base para 2 personas, Q150 por persona adicional",
+      "Cama Queen size",
+      "Baño privado y agua caliente",
+      "Aire acondicionado, TV y wifi",
+    ],
   },
 ];
 
@@ -69,7 +88,7 @@ export default function Rooms() {
           <p className="max-w-sm text-sm leading-relaxed text-cream/60">
             Las 23 incluyen aire acondicionado, TV y wifi, y se mantienen con el
             estándar de limpieza que destacan las reseñas. La diferencia entre
-            un tipo y otro está en la cama, no en el cuidado.
+            un tipo y otro está en el tamaño de la cama, no en el cuidado.
           </p>
         </div>
 
@@ -155,6 +174,32 @@ export default function Rooms() {
                 </figure>
               )}
 
+              {/* Ficha de la habitación: panel macizo en el azul mas
+                  oscuro de la paleta, hundido sobre el fondo de la seccion.
+                  El azul saturado de la marca ya lo gasta la banda de la
+                  habitacion 5, y tres paneles asi de fuertes le quitarian el
+                  lugar. La viñeta es un filete de periwinkle, no un disco:
+                  es el mismo vocabulario de lineas del resto del sitio.
+                  Comparte el ancho maximo del video para que las dos cajas
+                  queden a plomo en pantallas angostas. */}
+              <ul
+                className="mt-4 space-y-3 rounded-panel bg-ink px-6 py-6"
+                style={{ maxWidth: "calc(70svh * 4 / 5)" }}
+              >
+                {t.ficha.map((f) => (
+                  <li
+                    key={f}
+                    className="flex gap-3 text-sm leading-snug text-cream/75"
+                  >
+                    <span
+                      aria-hidden="true"
+                      className="mt-[0.6em] h-px w-3 shrink-0 bg-brand-soft"
+                    />
+                    <span>{f}</span>
+                  </li>
+                ))}
+              </ul>
+
               <dl className="mt-auto space-y-4 pt-8">
                 <div className="flex items-baseline justify-between gap-4">
                   <dt className="text-sm whitespace-nowrap text-cream/55">
@@ -194,11 +239,11 @@ export default function Rooms() {
           <div>
             <p className="mb-4 text-sm text-brand-soft">Habitación 5</p>
             <p className="display-soft font-display text-[1.7rem] leading-[1.15] font-normal text-cream md:text-[2.2rem]">
-              La única con cama king de todo el hotel.
+              La única con cama King size de todo el hotel.
             </p>
             <p className="mt-4 max-w-xl text-sm leading-relaxed text-cream/60">
               Es del Tipo 1, pero en lugar de las dos camas matrimoniales lleva
-              una sola cama king. Si es la que buscas, conviene pedirla por
+              una sola cama King size. Si es la que buscas, conviene pedirla por
               número al momento de reservar.
             </p>
           </div>

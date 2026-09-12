@@ -4,7 +4,8 @@ import { abrirReserva, TIPOS } from "../reserva.js";
 const FACTS = [
   { value: "4", label: "Personas como máximo" },
   { value: "2", label: "Sofás cama" },
-  { value: "Q600", label: "Por noche, todos los días" },
+  { value: "Q600", label: "La noche, para 2 personas" },
+  { value: "Q150", label: "Por cada persona adicional" },
 ];
 
 const STAYS = [
@@ -27,8 +28,8 @@ export default function Triangulo() {
           </div>
           <p className="max-w-sm text-sm leading-relaxed text-charcoal/55">
             El Triángulo es un espacio aparte dentro de Cabelas, con su propia
-            tarifa y su propia lógica. Pensado para grupos de hasta cuatro y
-            para quien se queda más de unos días.
+            tarifa. Pensado para grupos de hasta cuatro y para quien se queda
+            más de unos días.
           </p>
         </div>
 
@@ -37,8 +38,9 @@ export default function Triangulo() {
           {/* El video manda en esta columna: va a ancho completo */}
           <div className="lg:col-span-7">
             <p className="display-soft max-w-xl font-display text-[1.5rem] leading-[1.22] font-normal text-charcoal md:text-[1.9rem]">
-              Hasta 4 personas, con dos sofás cama, por{" "}
-              <span className="text-brand-dark">Q600 la noche</span>.
+              Hasta 4 personas, con dos sofás cama.{" "}
+              <span className="text-brand-dark">Q600 la noche para 2</span>, y
+              Q150 adicionales por cada persona extra.
             </p>
             <p className="mt-5 max-w-xl text-base leading-relaxed text-charcoal/60">
               El precio es el mismo todos los días del año. El Triángulo no
