@@ -11,9 +11,8 @@ const TYPES = [
     src: "/videos/habitacion-2-matrimoniales.mp4",
     poster: "/images/poster-habitacion-2-matrimoniales.jpg",
     ficha: [
-      "Base para 2 personas, Q150 por persona adicional",
+      "Habitación para 2 personas, Q150 por persona adicional",
       "2 camas matrimoniales",
-      "La habitación 5 es la excepción: lleva una cama King size",
       "Baño privado y agua caliente",
       "Aire acondicionado, TV y wifi",
     ],
@@ -27,7 +26,7 @@ const TYPES = [
     estandar: "Q390",
     traveler: "Q290",
     ficha: [
-      "Base para 2 personas, Q150 por persona adicional",
+      "Habitación para 2 personas, Q150 por persona adicional",
       "1 cama matrimonial",
       "Baño privado y agua caliente",
       "Aire acondicionado, TV y wifi",
@@ -42,7 +41,7 @@ const TYPES = [
     src: "/videos/habitacion-extra-size.mp4",
     poster: "/images/poster-habitacion-extra-size.jpg",
     ficha: [
-      "Base para 2 personas, Q150 por persona adicional",
+      "Habitación para 2 personas, Q150 por persona adicional",
       "Cama Queen size",
       "Baño privado y agua caliente",
       "Aire acondicionado, TV y wifi",

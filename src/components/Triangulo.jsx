@@ -38,7 +38,7 @@ export default function Triangulo() {
           {/* El video manda en esta columna: va a ancho completo */}
           <div className="lg:col-span-7">
             <p className="display-soft max-w-xl font-display text-[1.5rem] leading-[1.22] font-normal text-charcoal md:text-[1.9rem]">
-              Hasta 4 personas, con dos sofás cama.{" "}
+              Máximo 4 personas, con dos sofás cama.{" "}
               <span className="text-brand-dark">Q600 la noche para 2</span>, y
               Q150 adicionales por cada persona extra.
             </p>
