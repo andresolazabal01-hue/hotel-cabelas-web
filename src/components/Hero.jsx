@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 
 // Dos tomas distintas, no la misma recortada: la vertical se grabó para
@@ -12,6 +12,73 @@ export default function Hero() {
     () => window.matchMedia(VERTICAL).matches,
   );
   const [bajando, setBajando] = useState(false);
+  const videoRef = useRef(null);
+
+  // El autoplay no se deja en manos de los atributos.
+  //
+  // React escribe muted como propiedad y nunca como atributo (react#10389):
+  // en el DOM publicado el video salia con autoplay, loop y playsinline,
+  // pero sin muted. Chrome solo mira la propiedad y reproduce; Safari en
+  // iOS y los navegadores internos de WhatsApp e Instagram miran el
+  // atributo, lo tratan como video con sonido y bloquean el autoplay en
+  // silencio, dejando el poster quieto como si el video estuviera trabado.
+  //
+  // Y aun con muted hay casos donde no arranca solo: el modo de bajo
+  // consumo de iOS bloquea todo autoplay, y algunos navegadores internos
+  // exigen un gesto. Para esos, el primer toque en cualquier parte lo
+  // arranca. Tambien se reintenta al volver a la pestana o al regresar
+  // con el boton atras, donde el navegador lo deja pausado.
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    video.muted = true;
+    video.defaultMuted = true;
+    video.setAttribute("muted", "");
+
+    let soltarGesto = () => {};
+
+    const reproducir = () => {
+      const intento = video.play();
+      // Navegadores viejos: play() no devuelve promesa.
+      if (!intento) return;
+      intento.catch((err) => {
+        // AbortError es un video que se desmonto a medio intento, no un
+        // bloqueo: no hay nada que reintentar.
+        if (err?.name === "AbortError") return;
+        soltarGesto();
+        const alTocar = () => {
+          soltarGesto();
+          video.play().catch(() => {});
+        };
+        document.addEventListener("touchstart", alTocar, { passive: true });
+        document.addEventListener("click", alTocar);
+        soltarGesto = () => {
+          document.removeEventListener("touchstart", alTocar);
+          document.removeEventListener("click", alTocar);
+        };
+      });
+    };
+
+    const alVolver = () => {
+      if (document.visibilityState === "visible" && video.paused) {
+        reproducir();
+      }
+    };
+    const alMostrar = (e) => {
+      if (e.persisted && video.paused) reproducir();
+    };
+
+    reproducir();
+    document.addEventListener("visibilitychange", alVolver);
+    window.addEventListener("pageshow", alMostrar);
+
+    return () => {
+      soltarGesto();
+      document.removeEventListener("visibilitychange", alVolver);
+      window.removeEventListener("pageshow", alMostrar);
+    };
+  }, [vertical]);
 
   useEffect(() => {
     const consulta = window.matchMedia(VERTICAL);
@@ -43,6 +110,7 @@ export default function Hero() {
           metadata para no pelearse por el ancho de banda con este. */}
       <video
         key={vertical ? "vertical" : "horizontal"}
+        ref={videoRef}
         className="absolute inset-0 h-full w-full object-cover"
         src={vertical ? "/videos/hero-mobile.mp4" : "/videos/hero.mp4"}
         poster={
