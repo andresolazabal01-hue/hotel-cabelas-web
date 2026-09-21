@@ -7,7 +7,6 @@ const TYPES = [
     range: "Habitaciones 1 a 8",
     bed: "2 camas matrimoniales",
     estandar: "Q450",
-    traveler: "Q350",
     src: "/videos/habitacion-2-matrimoniales.mp4",
     poster: "/images/poster-habitacion-2-matrimoniales.jpg",
     ficha: [
@@ -24,7 +23,6 @@ const TYPES = [
     range: "Habitaciones 9 a 17",
     bed: "1 cama matrimonial",
     estandar: "Q390",
-    traveler: "Q290",
     ficha: [
       "Habitación para 2 personas, Q150 por persona adicional",
       "1 cama matrimonial",
@@ -37,7 +35,6 @@ const TYPES = [
     range: "Habitaciones 18 a 23",
     bed: "Cama Queen size",
     estandar: "Q450",
-    traveler: "Q350",
     src: "/videos/habitacion-extra-size.mp4",
     poster: "/images/poster-habitacion-extra-size.jpg",
     ficha: [
@@ -91,50 +88,8 @@ export default function Rooms() {
           </p>
         </div>
 
-        {/* Cómo funcionan los precios — abierto sobre el fondo, sin caja */}
-        <div className="border-t border-white/10 pt-14">
-          <p className="section-label-invert">Cómo funcionan los precios</p>
-          <h3 className="display-soft max-w-2xl font-display text-[1.7rem] leading-[1.16] font-normal text-cream md:text-[2rem] lg:text-[2.4rem]">
-            Hay dos precios por noche: el estándar y el{" "}
-            <span className="text-brand-soft">precio de viajero</span>.
-          </h3>
-
-          <div className="mt-10 grid gap-10 md:grid-cols-2 md:gap-16">
-            <div>
-              <p className="font-display text-lg font-medium text-cream">
-                Precio estándar
-              </p>
-              <p className="mt-3 max-w-md text-sm leading-relaxed text-cream/60">
-                Se aplica los fines de semana. También de lunes a viernes cuando
-                se hospedan{" "}
-                <strong className="font-medium text-cream/90">
-                  dos personas o más
-                </strong>
-                .
-              </p>
-            </div>
-            <div>
-              <p className="font-display text-lg font-medium text-brand-soft">
-                Precio de viajero
-              </p>
-              <p className="mt-3 max-w-md text-sm leading-relaxed text-cream/60">
-                Tarifa especial de{" "}
-                <strong className="font-medium text-cream/90">
-                  lunes a viernes
-                </strong>
-                , válida únicamente cuando viaja{" "}
-                <strong className="font-medium text-cream/90">
-                  una sola persona
-                </strong>
-                . Si van dos o más, aplica el precio estándar aunque sea entre
-                semana.
-              </p>
-            </div>
-          </div>
-        </div>
-
         {/* Los tres tipos: una sola tabla con filetes, no tres tarjetas */}
-        <div className="mt-14 grid gap-px overflow-hidden rounded-panel bg-white/10 md:mt-16 lg:grid-cols-3">
+        <div className="grid gap-px overflow-hidden rounded-panel bg-white/10 lg:grid-cols-3">
           {TYPES.map((t, i) => (
             <article key={t.tag} className="flex flex-col bg-deep p-7 md:p-8">
               <h4 className="font-display text-xl font-medium text-cream">
@@ -199,17 +154,6 @@ export default function Rooms() {
                   </dt>
                   <dd className="font-display text-2xl font-medium text-cream">
                     {t.estandar}
-                  </dd>
-                </div>
-                <div className="flex items-baseline justify-between gap-4">
-                  <dt className="text-sm text-cream/55">
-                    Precio de viajero
-                    <span className="mt-0.5 block text-xs text-cream/35">
-                      Lunes a viernes, 1 persona
-                    </span>
-                  </dt>
-                  <dd className="font-display text-2xl font-medium text-brand-soft">
-                    {t.traveler}
                   </dd>
                 </div>
               </dl>

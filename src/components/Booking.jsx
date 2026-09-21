@@ -1,4 +1,4 @@
-import { PHONE_DISPLAY } from "../data.js";
+import { PHONE_DISPLAY, WHATSAPP_CORPORATIVO_URL } from "../data.js";
 import { abrirReserva } from "../reserva.js";
 
 export default function Booking() {
@@ -17,15 +17,7 @@ export default function Booking() {
           Sin comisiones a terceros.
         </h2>
 
-        <p className="mx-auto mt-8 max-w-lg text-base leading-relaxed text-white/62">
-          El precio de viajero,{" "}
-          <span className="text-white/80">
-            Q290 a Q350 la noche de lunes a viernes
-          </span>
-          , solo existe reservando con nosotros. Ninguna plataforma lo tiene,
-          porque ninguna plataforma se queda con una comisión de por medio.
-        </p>
-        <p className="mx-auto mt-4 max-w-md text-base leading-relaxed text-white/62">
+        <p className="mx-auto mt-8 max-w-md text-base leading-relaxed text-white/62">
           Escríbenos por WhatsApp y confirma tu habitación en minutos, a
           cualquier hora del día. Sin anticipo para apartarla.
         </p>
@@ -50,6 +42,22 @@ export default function Booking() {
             Respuesta a cualquier hora · 24/7
           </span>
         </div>
+
+        {/* Precio corporativo: una sola mención en todo el sitio, aparte del
+            llamado principal por el filete. El enlace es la propia palabra
+            "Contáctanos", así el bloque no suma ni una palabra al texto. */}
+        <p className="mx-auto mt-12 max-w-md border-t border-white/10 pt-8 text-sm leading-relaxed text-white/62">
+          También contamos con precio corporativo.{" "}
+          <a
+            href={WHATSAPP_CORPORATIVO_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="foco-marca rounded-control text-brand-soft underline decoration-brand-soft/40 underline-offset-4 transition-colors duration-200 hover:text-white hover:decoration-white/60"
+          >
+            Contáctanos
+          </a>{" "}
+          para más información.
+        </p>
       </div>
     </section>
   );

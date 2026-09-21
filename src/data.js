@@ -7,6 +7,14 @@ export const WHATSAPP_URL =
     "Hola, quisiera información para reservar una habitación en Hotel Cabelas.",
   );
 
+// Mismo numero; el mensaje ya dice de que se trata para que recepcion
+// no tenga que preguntar.
+export const WHATSAPP_CORPORATIVO_URL =
+  "https://wa.me/50242832404?text=" +
+  encodeURIComponent(
+    "Hola, quisiera información sobre el precio corporativo de Hotel Cabelas.",
+  );
+
 export const ADDRESS = "1a Avenida 0-50, Mazatenango 10027, Suchitepéquez";
 
 export const MAPS_EMBED_URL =
