@@ -43,9 +43,8 @@ export default function Triangulo() {
               Q150 adicionales por cada persona extra.
             </p>
             <p className="mt-5 max-w-xl text-base leading-relaxed text-charcoal/60">
-              El precio es el mismo todos los días del año. El Triángulo no
-              entra en ningún descuento, así que sabes desde el inicio
-              exactamente cuánto vas a pagar.
+              El precio es el mismo todos los días del año, así que sabes desde
+              el inicio exactamente cuánto vas a pagar.
             </p>
 
             <DragScrubVideo
