@@ -4,7 +4,7 @@ import { abrirReserva, TIPOS } from "../reserva.js";
 const FACTS = [
   { value: "4", label: "Personas como máximo" },
   { value: "2", label: "Sofás cama" },
-  { value: "Q600", label: "La noche, para 2 personas" },
+  { value: "Q500", label: "La noche, para 2 personas" },
   { value: "Q150", label: "Por cada persona adicional" },
 ];
 
@@ -39,7 +39,7 @@ export default function Triangulo() {
           <div className="lg:col-span-7">
             <p className="display-soft max-w-xl font-display text-[1.5rem] leading-[1.22] font-normal text-charcoal md:text-[1.9rem]">
               Máximo 4 personas, con dos sofás cama.{" "}
-              <span className="text-brand-dark">Q600 la noche para 2</span>, y
+              <span className="text-brand-dark">Q500 la noche para 2</span>, y
               Q150 adicionales por cada persona extra.
             </p>
             <p className="mt-5 max-w-xl text-base leading-relaxed text-charcoal/60">
