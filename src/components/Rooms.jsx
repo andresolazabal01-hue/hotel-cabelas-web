@@ -12,6 +12,7 @@ const TYPES = [
     ficha: [
       "Habitación para 2 personas, Q150 por persona adicional",
       "2 camas matrimoniales",
+      "Habitación 5: cama King size",
       "Baño privado y agua caliente",
       "Aire acondicionado, TV y wifi",
     ],
@@ -33,13 +34,13 @@ const TYPES = [
   {
     tag: "Tipo 3",
     range: "Habitaciones 18 a 23",
-    bed: "Cama Queen size",
+    bed: "1 cama King size",
     estandar: "Q450",
-    src: "/videos/habitacion-extra-size.mp4",
-    poster: "/images/poster-habitacion-extra-size.jpg",
+    src: "/videos/habitacion-king-size.mp4",
+    poster: "/images/poster-habitacion-king-size.jpg",
     ficha: [
       "Habitación para 2 personas, Q150 por persona adicional",
-      "Cama Queen size",
+      "1 cama King size",
       "Baño privado y agua caliente",
       "Aire acondicionado, TV y wifi",
     ],
@@ -84,7 +85,8 @@ export default function Rooms() {
           <p className="max-w-sm text-sm leading-relaxed text-cream/60">
             Las 23 incluyen aire acondicionado, TV y wifi, y se mantienen con el
             estándar de limpieza que destacan las reseñas. La diferencia entre
-            un tipo y otro está en el tamaño de la cama, no en el cuidado.
+            un tipo y otro está en el tamaño y la cantidad de camas, no en el
+            cuidado.
           </p>
         </div>
 
@@ -130,9 +132,9 @@ export default function Rooms() {
 
               {/* Ficha de la habitación: panel macizo en el azul mas
                   oscuro de la paleta, hundido sobre el fondo de la seccion.
-                  El azul saturado de la marca ya lo gasta la banda de la
-                  habitacion 5, y tres paneles asi de fuertes le quitarian el
-                  lugar. Sin vineta: cada caracteristica ocupa su propio
+                  Va en el azul mas oscuro y no en el saturado de la marca:
+                  tres paneles fuertes seguidos le quitarian peso al precio,
+                  que es lo que la tarjeta tiene que rematar. Sin vineta: cada caracteristica ocupa su propio
                   renglon, y el aire entre ellas ya las separa.
                   Comparte el ancho maximo del video para que las dos cajas
                   queden a plomo en pantallas angostas. */}
@@ -168,28 +170,6 @@ export default function Rooms() {
               </button>
             </article>
           ))}
-        </div>
-
-        {/* Habitación 5 — banda de énfasis, con otro peso que la tabla */}
-        <div className="mt-5 flex flex-col gap-7 rounded-panel bg-brand/20 p-8 sm:flex-row sm:items-center sm:justify-between md:p-12">
-          <div>
-            <p className="mb-4 text-sm text-brand-soft">Habitación 5</p>
-            <p className="display-soft font-display text-[1.7rem] leading-[1.15] font-normal text-cream md:text-[2.2rem]">
-              La única con cama King size de todo el hotel.
-            </p>
-            <p className="mt-4 max-w-xl text-sm leading-relaxed text-cream/60">
-              Es del Tipo 1, pero en lugar de las dos camas matrimoniales lleva
-              una sola cama King size. Si es la que buscas, conviene pedirla por
-              número al momento de reservar.
-            </p>
-          </div>
-          <button
-            type="button"
-            onClick={() => abrirReserva(TIPOS[0])}
-            className="btn-filete shrink-0 self-start px-6 py-3 sm:self-auto"
-          >
-            Preguntar por la 5
-          </button>
         </div>
 
         {/* Qué incluye — bloque abierto, sin caja ni pastillas */}
