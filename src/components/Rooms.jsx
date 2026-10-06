@@ -123,7 +123,7 @@ export default function Rooms() {
                         La habitación del viajero.
                       </span>{" "}
                       Pensada para quien llega por trabajo, no por vacaciones.
-                      Lo esencial, sin cosas de más.
+                      Lo esencial, cuidado al detalle.
                     </p>
                   </div>
                   <div className="mt-3 h-[3px] w-full bg-white/10" />
