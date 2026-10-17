@@ -8,8 +8,8 @@ const FAQS = [
     a: "Aceptamos transferencia, efectivo y tarjeta. Pagar con tarjeta no tiene ningún recargo: el precio es el mismo por cualquiera de las tres formas.",
   },
   {
-    q: "¿Tengo que dar un anticipo para apartar?",
-    a: "No. No pedimos anticipo ni depósito para dejar tu reserva apartada. Basta con escribirnos y confirmar la disponibilidad.",
+    q: "¿Debo dar un anticipo para apartar mi reserva?",
+    a: "Sí. Para asegurar tu reserva se solicita un anticipo. Escríbenos por WhatsApp y te indicamos el monto y las formas de pago disponibles.",
   },
   {
     q: "¿Dan factura?",
